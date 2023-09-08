@@ -1,0 +1,32 @@
+
+.col-form{
+    border-radius: 2%;
+    border-style: initial;
+    background-image: linear-gradient(rgb(241, 234, 234),rgb(101, 99, 99));
+    padding: 20px;
+}
+.row-form{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid{
+    height: 100vh;
+}
+.btnn{
+    display: flex;
+    justify-content: center;
+}
+body{
+    background-image: url(../img/login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.choose{
+    display: flex;
+    justify-content: center;
+}
+#f2{
+    display: none;
+}
