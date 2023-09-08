@@ -24,16 +24,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./phome">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/Khoaluan/phome">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./phome">Jordan</a>
+                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Jordan">Jordan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./phome">Adidas</a>
+                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Adidas">Adidas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./phome">Nike</a>
+                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Nike">Nike</a>
                     </li>
                 </ul>
                 <form class="d-flex">

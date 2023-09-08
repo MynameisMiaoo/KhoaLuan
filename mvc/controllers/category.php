@@ -15,7 +15,7 @@ class category extends controller{
             "text" => "NIKEPAGE"
     ]);
     }
-    function JOKDAN(){
+    function JORDAN(){
         $this->view("main",[
             "page"=>"pproduct",
             "text" => "JORDANPAGE"

@@ -1,0 +1,40 @@
+ul{
+    justify-content: center;
+    justify-items: center;
+    list-style-type:none;
+}
+li{
+    display: flex;
+    justify-content: center;
+}
+.footer{
+    width: auto;
+    height: auto;
+    background-color: rgb(208, 200, 189);
+}
+.line{
+    width: 50%;
+    border-top: 1px solid black;
+    padding-bottom: 20px;
+    opacity: 0.3;
+}
+label{
+    color: black;
+    font-size: 26px;
+    font-style:unset;
+}
+#link{
+    text-decoration: none;
+    color:black;
+}
+#input{
+    padding-top: 10px;
+    display: flex;
+    width: 60%;
+}
+#button{
+    margin-left: 20px;
+}
+#vocher{
+    font-size: 20px;
+}
