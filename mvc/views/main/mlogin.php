@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./public/css/login.css">
-    <script src="./KhoaLuan_NVS/public/javascript/login.js"></script>
+    <script src="./KhoaLuan/public/javascript/login.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
@@ -33,7 +33,8 @@
                         <label class="form-check-label" for="exampleCheck1" name="repass">Remember password</label>
                     </div>
                     <div class="btnn">
-                        <button type="submit" class="btn btn-dark">Sign In</button>
+                        <a type="btn" class="btn btn-dark" href="./phome">Back</a>
+                        <button type="submit" class="btn btn-dark" style="margin-left: 10px;">Sign In</button>
                     </div>
                 </form>
                 <form method="POST" id="f2" action="login/Check">
@@ -54,7 +55,8 @@
                         <input type="password" class="form-control" name="re_repass" placeholder="Input your password" id="exampleInputPassword1">
                     </div>
                     <div class="btnn">
-                        <button type="submit" class="btn btn-dark">Register</button>
+                        <a type="btn" class="btn btn-dark" href="./phome">Back</a>
+                        <button type="submit" class="btn btn-dark" style="margin-left: 10px;">Register</button>
                     </div>
                 </form>
                 <script>

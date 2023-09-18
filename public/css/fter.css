@@ -7,11 +7,6 @@ li{
     display: flex;
     justify-content: center;
 }
-.footer{
-    width: auto;
-    height: auto;
-    background-color: rgb(208, 200, 189);
-}
 .line{
     width: 50%;
     border-top: 1px solid black;
@@ -37,4 +32,8 @@ label{
 }
 #vocher{
     font-size: 20px;
+}
+.footer{
+    height: auto;
+    background-color: rgb(147, 147, 246);
 }
