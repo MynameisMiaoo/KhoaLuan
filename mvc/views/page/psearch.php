@@ -1,3 +1,4 @@
 <?php
-echo "day la giao dien trang tim kiem"
+echo "day la giao dien trang tim kiem";
+echo $data['text'];
 ?>

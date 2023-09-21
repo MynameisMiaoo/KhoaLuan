@@ -4,6 +4,7 @@ class App{
     protected $controller="Home";
     protected $action="SayHi";
     protected $params=[];
+    
 
     function __construct(){ 
         $arr = $this->UrlProcess();
@@ -33,9 +34,9 @@ class App{
 
     function UrlProcess(){
         if( isset($_GET["url"]) ){
-            return explode("/", filter_var(trim($_GET["url"], "/")));
+            $main= explode("/", filter_var(trim($_GET["url"], "/")));
+            return $main;
         }else{return ["Home"];}
     }
-
 }
 ?>

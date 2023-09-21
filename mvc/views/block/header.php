@@ -42,17 +42,24 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/Khoaluan/Login">
-                        <i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i>
+                            <i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i>
                         </a>
                     </li>
                 </ul>
-                <form class="d-flex" style=" margin-right: 100px;">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" style=" margin-right: 100px;" method="post" id="myformm">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
+                    <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/Search')">Search</button>
                 </form>
             </div>
         </div>
     </nav>
+    <script>
+        function setFormAction(url) {
+            var inputContent = document.getElementById("inputContent").value;
+            var form = document.getElementById("myformm");
+            form.action = url + "/" + encodeURIComponent(inputContent);
+        }
+    </script>
 </body>
 
 </html>

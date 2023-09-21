@@ -6,7 +6,8 @@
     <title>Pay</title>
 </head>
 <body>
-    <h1><?php echo $data["text"]?></h1>
-    <h2>pay</h2>
+    <form action="/KhoaLuan/Pay" method="post">
+        <button type="submit" name="payUrl">Momo</button>
+    </form>
 </body>
 </html>

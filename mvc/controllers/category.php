@@ -7,9 +7,11 @@ class category extends controller
     }
     function Adidas()
     {
+        $md= $this->model("product_model");
         $this->view("main", [
             "page" => "pproduct",
             "text" => "ADIDASPAGE",
+            "data" => $md->GetProduct("adidas")
         ]);
     }
     function Adidas_Detail($a)
@@ -42,16 +44,21 @@ class category extends controller
     }
     function NIKE()
     {
+        $md= $this->model("product_model");
         $this->view("main", [
             "page" => "pproduct",
-            "text" => "NIKEPAGE"
+            "text" => "NIKEPAGE",
+            "data" => $md->GetProduct("Nike")
+
         ]);
     }
     function JORDAN()
     {
+        $md= $this->model("product_model");
         $this->view("main", [
             "page" => "pproduct",
-            "text" => "JORDANPAGE"
+            "text" => "JORDANPAGE",
+            "data" => $md->GetProduct("Jordan")
         ]);
     }
 }
