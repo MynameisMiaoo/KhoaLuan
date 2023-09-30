@@ -41,12 +41,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Khoaluan/Login">
-                            <i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i>
-                        </a>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo '<lable style="color: #d11a20; right: 100px; position: fixed;">LogOut</lable>';
+                            echo '<a class="nav-link active" aria-current="page" href="/Khoaluan/Login"><i class="fa-solid fa-right-from-bracket" style="color: #d11a20; right: 80px; position: fixed;"></i> </a>';
+                        } else {
+                            echo '<lable style="color: #d11a20; right: 100px; position: fixed;">LogIn</lable>';
+                            echo '<a class="nav-link active" aria-current="page" href="/Khoaluan/Login"><i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i> </a>';
+                        }
+                        ?>
+                        <!-- <i class="fa-solid fa-right-from-bracket"></i>
+                            <i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i> -->
                     </li>
                 </ul>
-                <form class="d-flex" style=" margin-right: 100px;" method="post" id="myformm">
+                <form class="d-flex" style=" margin-right: 150px;" method="post" id="myformm">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
                     <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/Search')">Search</button>
                 </form>

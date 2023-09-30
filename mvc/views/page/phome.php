@@ -53,7 +53,7 @@
             <?php while ($row = mysqli_fetch_assoc($data["data"])):?>
             <div class="col">
                 <div class="card" style="width: 18rem;">
-                    <img src=<?php echo $row["img_product"]?> class="card-img-top" alt="...">
+                    <img src="<?php echo $row["img_product"]?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h2><?php echo $row["price_product"]?> đ</h2>
                         <h5 class="card-title"><?php echo $row["name_product"]?></h5>

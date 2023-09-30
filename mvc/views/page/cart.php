@@ -16,6 +16,8 @@
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #ddd;
+            justify-content: center;
+            justify-items: center;
         }
 
         .divtb {
@@ -40,29 +42,29 @@
             <tr>
                 <td>So Thu Tu</td>
                 <td>Name</td>
-                <td>Id</td>
+                <!-- <td>Id</td> -->
                 <td>Gia</td>
                 <td>Img</td>
-                <td>Mo Ta</td>
+                <!-- <td>Mo Ta</td> -->
                 <td>Thuong Hieu</td>
-                <td>cate_id</td>
+                <td>SL</td>
             </tr>
             <?php
-            $tong = 0;
+            $_SESSION['tong'] = 0;
             for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) :
             ?>
                 <tr>
                     <td><?php echo $i + 1 ?></td>
                     <td><?php echo $_SESSION['cart'][$i][0]; ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][1]; ?></td>
+                    <!-- <td><?php echo $_SESSION['cart'][$i][1]; ?></td> -->
                     <td><?php echo $_SESSION['cart'][$i][2]; ?></td>
-                    <td><img src="<?php echo $_SESSION['cart'][$i][3]; ?>" alt="anh"></td>
-                    <td><?php echo $_SESSION['cart'][$i][4]; ?></td>
+                    <td><img style="width: 150px;" src="/KhoaLuan/<?php echo $_SESSION['cart'][$i][3]; ?>" alt="anh"></td>
+                    <!-- <td><?php echo $_SESSION['cart'][$i][4]; ?></td> -->
                     <td><?php echo $_SESSION['cart'][$i][5]; ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][6]; ?></td>
+                    <td><?php echo $_SESSION['cart'][$i][7]; ?></td>
                     <td><a href="/KhoaLuan/Cart/Delete/<?php echo $i ?>">Xoa</a></td>
                 </tr>
-                <?php $tong = $tong + $_SESSION['cart'][$i][2] ?>
+                <?php $_SESSION['tong'] = $_SESSION['tong'] + $_SESSION['cart'][$i][2] * $_SESSION['cart'][$i][7] ?>
             <?php
             endfor;
             ?>
@@ -73,8 +75,8 @@
     </div>
     <div>
         <?php
-        if ($tong != 0) {
-            echo '<h1 class ="abc">' . $tong . '</h1>';
+        if ($_SESSION['tong'] != 0) {
+            echo '<h1 id = "myh1" class ="abc">' . $_SESSION['tong'] . '</h1>';
         }
         ?>
     </div>
@@ -88,7 +90,6 @@
 
         var myDiv = document.getElementById("myDivv");
         var tb = document.getElementById("tb");
-
         if (sessionVariable) {
             // Thay đổi CSS để hiển thị div
             myDiv.style.display = "block";

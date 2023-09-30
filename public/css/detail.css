@@ -22,16 +22,7 @@
     border: none;
     height: 4px;
     background-color: #888181;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 90%;
 }
-
-.mytitle {
-    margin: 0 10vh;
-}
-
-#divcomment {
-    margin: 30px;
-    box-sizing: border-box;
-    border: 1px solid black;
-}
+/* can css lai  */

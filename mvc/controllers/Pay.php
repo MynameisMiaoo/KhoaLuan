@@ -26,7 +26,10 @@ class Pay extends controller
 
     public function SayHi()
     {
-
+        if(!isset($_SESSION['username'])){
+            $_SESSION['tt']="true";
+            header('Location: ../KhoaLuan/login');
+        }
         if (isset($_POST["payUrl"])) {
 
             $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
@@ -35,7 +38,7 @@ class Pay extends controller
             $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
             $orderInfo = "Thanh toán qua MoMo";
-            $amount = "10000";
+            $amount = $_SESSION['tong'];
             $orderId = time() . "";
             $redirectUrl = "http://localhost/Khoaluan/PayDone";
             $ipnUrl = "http://localhost/Khoaluan/Paydone";
