@@ -40,14 +40,16 @@
     <div class="divtb">
         <table>
             <tr>
-                <td>So Thu Tu</td>
-                <td>Name</td>
+                <td>STT</td>
+                <td>Tên</td>
                 <!-- <td>Id</td> -->
-                <td>Gia</td>
-                <td>Img</td>
+                <td>Giá</td>
+                <td>Ảnh</td>
                 <!-- <td>Mo Ta</td> -->
-                <td>Thuong Hieu</td>
-                <td>SL</td>
+                <td>Thương Hiệu</td>
+                <td>Số Lượng</td>
+                <td>Size</td>
+                <td>Màu</td>
             </tr>
             <?php
             $_SESSION['tong'] = 0;
@@ -58,10 +60,12 @@
                     <td><?php echo $_SESSION['cart'][$i][0]; ?></td>
                     <!-- <td><?php echo $_SESSION['cart'][$i][1]; ?></td> -->
                     <td><?php echo $_SESSION['cart'][$i][2]; ?></td>
-                    <td><img style="width: 150px;" src="/KhoaLuan/<?php echo $_SESSION['cart'][$i][3]; ?>" alt="anh"></td>
+                    <td><img style="width: 150px;" src="<?php echo $_SESSION['cart'][$i][3]; ?>" alt="anh"></td>
                     <!-- <td><?php echo $_SESSION['cart'][$i][4]; ?></td> -->
                     <td><?php echo $_SESSION['cart'][$i][5]; ?></td>
                     <td><?php echo $_SESSION['cart'][$i][7]; ?></td>
+                    <td><?php echo $_SESSION['cart'][$i][8]; ?></td>
+                    <td><?php echo $_SESSION['cart'][$i][9]; ?></td>
                     <td><a href="/KhoaLuan/Cart/Delete/<?php echo $i ?>">Xoa</a></td>
                 </tr>
                 <?php $_SESSION['tong'] = $_SESSION['tong'] + $_SESSION['cart'][$i][2] * $_SESSION['cart'][$i][7] ?>

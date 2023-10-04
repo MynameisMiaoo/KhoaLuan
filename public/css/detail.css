@@ -1,18 +1,19 @@
 #img_detail {
-    width: 70%;
+    width:70%;
+    height: auto;
 }
 
-.box {
+/* .box {
     width: 60px;
     height: 40px;
     background-color: red;
-}
+} */
 
-.box-color {
+/* .box-color {
     width: 60px;
     height: 40px;
     background-color: red;
-}
+} */
 
 .row {
     padding-bottom: 20px;
@@ -25,4 +26,30 @@
     /* margin: 0 auto; */
     width: 90%;
 }
+
+.size {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+.color {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.size.selected {
+    background-color: yellow;
+}
+.color.selected {
+    background-color: yellow;
+}
+
+
 /* can css lai  */

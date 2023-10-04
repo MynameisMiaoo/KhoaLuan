@@ -20,5 +20,21 @@ class Ajax extends controller
         $md = $this->model("email_model");
         $md->Insert($email);
     }
+    function CountProduct(){
+        $size = $_POST["size"];
+        $color = $_POST["color"];
+        $id = $_POST["id"];
+        $md = $this->model("products_detail_model");
+        $kq=$md->GetCount($size, $color,$id );
+        echo json_encode($kq);
+    }
+    function Img(){
+        $color = $_POST["color"];
+        $id = $_POST["id"];
+        $md = $this->model("products_detail_model");
+        $kq=$md->GetImg($color,$id);
+        echo json_encode($kq);
+    }
+
 }
 ?>

@@ -10,14 +10,14 @@ class category extends controller
         $sort="";
         $min="";
         $max = "";
-        if(isset($_POST['sort_price'])){
-            $sort= $_POST['sort_price'];
+        if(isset($_GET['sort_price'])){
+            $sort= $_GET['sort_price'];
         }
-        if(isset($_POST['minprice'])){
-            $min= $_POST['minprice'];
+        if(isset($_GET['minprice'])){
+            $min= $_GET['minprice'];
         }
-        if(isset($_POST['maxprice'])){
-            $max= $_POST['maxprice'];
+        if(isset($_GET['maxprice'])){
+            $max= $_GET['maxprice'];
         }
         $md = $this->model("product_model");
         $this->view("main", [
@@ -67,6 +67,7 @@ class category extends controller
     }
     function Adidas_Detail($a)
     {
+        $md2 = $this->model("products_detail_model");
         unset($_SESSION['form']);
         $md = $this->model("product_model");
         $this->view("main", [
@@ -74,11 +75,14 @@ class category extends controller
             "text" => "ADIDASPAGE",
             "data" => $md->GetProductById($a),
             "data2" => $md->GetProductNotId("adidas",$a),
-            "idproduct" =>$a
+            "idproduct" =>$a,
+            "size" => $md2->GetSize($a),
+            "color" => $md2->GetColor($a)
         ]);
     }
     function Nike_Detail($a)
     {
+        $md2 = $this->model("products_detail_model");
         unset($_SESSION['form']);
         $md = $this->model("product_model");
         $this->view("main", [
@@ -86,11 +90,14 @@ class category extends controller
             "text" => "ADIDASPAGE",
             "data" => $md->GetProductById($a),
             "data2" => $md->GetProductNotID("Nike",$a),
-            "idproduct" =>$a
+            "idproduct" =>$a,
+            "size" => $md2->GetSize($a),
+            "color" => $md2->GetColor($a)
         ]);
     }
     function Jordan_Detail($a)
     {
+        $md2 = $this->model("products_detail_model");
         unset($_SESSION['form']);
         $md = $this->model("product_model");
         $this->view("main", [
@@ -98,7 +105,9 @@ class category extends controller
             "text" => "ADIDASPAGE",
             "data" => $md->GetProductById($a),
             "data2" => $md->GetProductNotId("Jordan",$a),
-            "idproduct" =>$a
+            "idproduct" =>$a,
+            "size" => $md2->GetSize($a),
+            "color" => $md2->GetColor($a)
         ]);
     }
 }

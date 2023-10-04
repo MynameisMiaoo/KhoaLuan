@@ -19,24 +19,43 @@
                 <div class="col-5">
                     <h1><?php echo $row["name_product"] ?></h1>
                     <h3><?php echo $row["price_product"] ?></h3>
-                    <div class="box">size</div>
-                    <div class="box-color">color</div>
-                    <form action="/KhoaLuan/Cart" method="post">
+                    <div class="tt" id="div_ajax">
+                        <div class="box">
+                            <?php for ($i = 0; $i < sizeof($data["size"]); $i++) : ?>
+                                <div class="size" data-size=" <?php echo $data["size"][$i] ?> "><?php echo $data["size"][$i] ?></div>
+                            <?php
+                            endfor;
+                            ?>
+                        </div>
+                        <div class="box-color">
+                            <?php for ($i = 0; $i < sizeof($data["color"]); $i++) : ?>
+                                <div class="color" data-color="<?php echo $data["color"][$i] ?>"><?php echo $data["color"][$i] ?></div>
+                            <?php
+                            endfor;
+                            ?>
+                        </div>
+                        <div id="count_pr" style="display: none;">
+                            <h5 id="h6count"></h5>
+                        </div>
+                    </div>
+                    <form action="/KhoaLuan/Cart" method="post" id="myform">
                         <div>
                             <button id="btndec" type="button">-</button>
-                            <input id="myip" type="text" value="1" name="count">
+                            <input id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;">
                             <button id="btnadd" type="button">+</button>
                         </div>
                         <div>
-                            <a class="btn btn-primary" href="" role="button">Mua Ngay</a>
+                            <!-- <a class="btn btn-primary" href="" role="button">Mua Ngay</a> -->
                             <input type="hidden" name="id_product" value="<?php echo $row['id_product']; ?>">
                             <input type="hidden" name="cate_id" value="<?php echo $row['cate_id']; ?>">
-                            <input type="hidden" name="img_product" value="<?php echo $row['img_product']; ?>">
+                            <input type="hidden" name="img_product" id = "img_product" value="<?php echo $row['img_product']; ?>">
                             <input type="hidden" name="des_product" value="<?php echo $row['des_product']; ?>">
                             <input type="hidden" name="price_product" value="<?php echo $row['price_product']; ?>">
                             <input type="hidden" name="name_product" value="<?php echo $row['name_product']; ?>">
                             <input type="hidden" name="brand_product" value="<?php echo $row['brand_product']; ?>">
-                            <button type="submit">Them Vao Gio Hang</button>
+                            <input type="hidden" name="size_product" id="size_product" value="">
+                            <input type="hidden" name="color_product" id="color_product" value="">
+                            <button type="button" style="display: none;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
                     </form>
                 </div>
             </div>
@@ -64,15 +83,75 @@
         </div>
         <!-- binh luan -->
         <h1 class="mytitle">Binh Luan</h1>
-        <iframe src="/KhoaLuan/binhluan/Check/<?php echo $data['idproduct']?>" frameborder="0" style="height: 100vh; width: 100%;"></iframe>
-        </div>
+        <iframe src="/KhoaLuan/binhluan/Check/<?php echo $data['idproduct'] ?>" frameborder="0" style="height: 100vh; width: 100%;"></iframe>
+    </div>
     </div>
     <script>
-        var btn = document.getElementById('btn_dang');
+        var btn = document.getElementById('btn_buy');
         var myform = document.getElementById('myform');
         var add = document.getElementById('btnadd');
         var dec = document.getElementById('btndec');
         var ip = document.getElementById('myip');
+        var img = document.getElementById('img_detail');
+        var img2 = document.getElementById('img_product');
+        $(document).ready(function() {
+            var size = document.getElementById("size_product");
+            var color = document.getElementById("color_product");
+            var selectedSize = null;
+            var selectedColor = null;
+            $(".size").click(function() {
+                $(".size").removeClass("selected");
+                $(this).addClass("selected");
+                selectedSize = $(this).data("size");
+                size.value = selectedSize;
+                sendAjaxRequest();
+            });
+            $(".color").click(function() {
+                $(".color").removeClass("selected");
+                $(this).addClass("selected");
+                selectedColor = $(this).data("color");
+                sendAjax();
+                color.value = selectedColor;
+                sendAjaxRequest();
+            });
+
+            function sendAjax() {
+                $.ajax({
+                    url: "/KhoaLuan/ajax/Img",
+                    method: "POST",
+                    data: {
+                        color: selectedColor,
+                        id: <?php echo $data['idproduct']; ?>
+                    },
+                    success: function(data) {
+                        var result = JSON.parse(data);
+                        img.src = "/KhoaLuan/"+result;
+                    }
+                });
+
+            }
+
+            function sendAjaxRequest() {
+                if (selectedSize && selectedColor) {
+                    $.ajax({
+                        url: "/KhoaLuan/ajax/CountProduct",
+                        method: "POST",
+                        data: {
+                            size: selectedSize,
+                            color: selectedColor,
+                            id: <?php echo $data['idproduct']; ?>
+                        },
+                        success: function(data) {
+                            var result = JSON.parse(data);
+                            $("#count_pr").css("display", "flex");
+                            $("#h6count").text("Kho: " + result);
+                            ip.max = parseInt(result);
+                            $("#btn_buy").css("display", "flex");
+                        }
+                    });
+                }
+            }
+        });
         add.addEventListener('click', function() {
             var count = parseInt(ip.value);
             ip.value = count + 1
@@ -82,6 +161,7 @@
             ip.value = count - 1
         });
         btn.addEventListener('click', function() {
+            img2.value=img.src;
             myform.submit();
         });
     </script>

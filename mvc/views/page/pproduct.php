@@ -18,7 +18,7 @@
                 <div class="option">
                     <div class="sort-options">
                         <label for="sort-select">Sắp xếp theo:</label>
-                        <form action="" method="Post">
+                        <form action="" method="get">
                             <select id="sort-select" name="sort_price">
                                 <option value="" selected>Giá</option>
                                 <option value="ASC">Giá tăng dần</option>
