@@ -39,14 +39,46 @@
                     </li>
                     <li>
                         <div class="input-group mb-3" id="input">
-                            <input type="text" class="form-control " placeholder="Nhập email nhận thông báo khuyến mãi" aria-label="Your email" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" id = "button" type="button" id="button-addon2">Send</button>
+                            <input type="text" class="form-control " id="inputemail" placeholder="Nhập email nhận thông báo khuyến mãi" aria-label="Your email" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
                         </div>
+                    </li>
+                    <li id="notifi">
+                        <h6 id="errorContainer"></h6>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#button-addon2").click(function() {
+                var uemail = $("#inputemail").val();
+                if (!isValidEmail(uemail)) {
+                    $("#errorContainer").text("Email không hợp lệ!");
+                    $("#errorContainer").show();
+                    setTimeout(function() {
+                        $("#errorContainer").hide();
+                    }, 1600);
+                } else {
+                    $.post("/KhoaLuan/ajax/Email", {
+                        email: uemail
+                    }, function(data) {});
+                    $("#errorContainer").text("Cảm ơn, chúng tôi đã nhận được email của bạn");
+                    $("#errorContainer").css("color","green");
+                    $("#errorContainer").show();
+                    setTimeout(function() {
+                        $("#errorContainer").hide();
+                    }, 2000);
+                }
+            })
+        })
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
 </body>
 
 </html>

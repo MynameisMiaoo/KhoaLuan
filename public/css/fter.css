@@ -27,7 +27,7 @@ label{
     display: flex;
     width: 60%;
 }
-#button{
+#button-addon2{
     margin-left: 20px;
 }
 #vocher{
@@ -36,4 +36,7 @@ label{
 .footer{
     height: auto;
     background-color: rgb(147, 147, 246);
+}
+h6{
+    color: red;
 }

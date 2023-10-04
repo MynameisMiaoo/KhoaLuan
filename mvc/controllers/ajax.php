@@ -14,5 +14,11 @@ class Ajax extends controller
             "data" => $data
         ]);
     }
+    function Email()
+    {
+        $email = $_POST["email"];
+        $md = $this->model("email_model");
+        $md->Insert($email);
+    }
 }
 ?>
