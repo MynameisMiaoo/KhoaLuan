@@ -1,7 +1,14 @@
 <?php
 class product_model
 {
-    function GetList()
+    function GetList($begin,$count)
+    {
+        $new = new DB();
+        $query = "select * from tbl_products limit $begin , $count";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        return $kq;
+    }
+    function GetListFull()
     {
         $new = new DB();
         $query = "select * from tbl_products";

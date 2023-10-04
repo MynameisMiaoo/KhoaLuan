@@ -46,13 +46,13 @@ class admin extends controller
         if ($x === null) {
             $this->view("madmin", [
                 "page" => "ad_product",
-                "data" => $temp->GetList(),
+                "data" => $temp->GetListFull(),
             ]);
         } else {
             $temp->Delete($x);
             $this->view("madmin", [
                 "page" => "ad_product",
-                "data" => $temp->GetList(),
+                "data" => $temp->GetListFull(),
             ]);
         }
     }

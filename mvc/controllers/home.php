@@ -13,7 +13,7 @@ class home extends controller
             "main",
             [
                 "page" => "phome",
-                "data" => $a->GetList()
+                "data" => $a->GetList(0,2)
             ]
         );
     }

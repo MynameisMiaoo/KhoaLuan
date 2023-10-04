@@ -49,7 +49,7 @@
         <div>
             <label for="">San Pham Noi Bat</label>
         </div>
-        <div class="row">
+        <div class="row" id ="ds">
             <?php while ($row = mysqli_fetch_assoc($data["data"])):?>
             <div class="col">
                 <div class="card" style="width: 18rem;">
@@ -66,7 +66,21 @@
             endwhile;
             ?>
         </div>
+        <div class ="row">
+            <button id ="more">xem them</button>
+        </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            var $tr = 2;
+            $("#more").click(function(){
+                $.post("/KhoaLuan/ajax",{trang:$tr},function(data){
+                    $("#ds").append(data);
+                });
+                $tr= $tr+1;
+            });
+        });
+    </script>
 </body>
 
 </html>

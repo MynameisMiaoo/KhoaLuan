@@ -54,7 +54,7 @@
                             <i class="fa-solid fa-user" style="color: #d11a20; right: 80px; position: fixed;"></i> -->
                     </li>
                 </ul>
-                <form class="d-flex" style=" margin-right: 150px;" method="post" id="myformm">
+                <form class="d-flex" style=" margin-right: 150px;" method="GET" id="myformm">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
                     <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/Search')">Search</button>
                 </form>
@@ -65,7 +65,8 @@
         function setFormAction(url) {
             var inputContent = document.getElementById("inputContent").value;
             var form = document.getElementById("myformm");
-            form.action = url + "/" + encodeURIComponent(inputContent);
+            form.action = url;
+            // +"/" + encodeURIComponent(inputContent)
         }
     </script>
 </body>
