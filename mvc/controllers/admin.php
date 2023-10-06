@@ -3,7 +3,14 @@ class admin extends controller
 {
     function SayHi()
     {
-        $this->view("madmin", ["page" => "ad_admin"]);
+        //kiem tra xem da dang nhap bang tk admin chua
+        if (isset($_SESSION['username']) && $_SESSION['username'] == "admin@gmail.com") {
+            $this->view("madmin", ["page" => "ad_admin"]);
+        } else {
+            header("Location: /KhoaLuan/phome");
+            exit();
+        }
+        //*******************/
     }
     function Product($x = null)
     {

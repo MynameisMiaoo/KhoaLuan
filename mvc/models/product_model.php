@@ -1,7 +1,7 @@
 <?php
 class product_model
 {
-    function GetList($begin,$count)
+    function GetList($begin, $count)
     {
         $new = new DB();
         $query = "select * from tbl_products limit $begin , $count";
@@ -33,28 +33,34 @@ class product_model
     {
         $query = "SELECT * FROM tbl_products WHERE brand_product LIKE '%" . $a . "%'";
         // th load va bam loc trang
-        if($max==""&& $min==""){
-            $query.="";
+        if ($max == "" && $min == "") {
+            $query .= "";
         }
 
         // th 1 va ""
-        if($min!=""&&$max ==""){
-            $query.="AND price_product > '$min'";
+        if ($min != "" && $max == "") {
+            $query .= "AND price_product > '$min'";
         }
-        if($min==""&&$max!=""){
-            $query.="AND price_product < '$max'";
+        if ($min == "" && $max != "") {
+            $query .= "AND price_product < '$max'";
         }
-        if($min!=""&&$max!=""){
-            $query.="AND price_product < '$max' AND price_product > '$min'";
+        if ($min != "" && $max != "") {
+            $query .= "AND price_product < '$max' AND price_product > '$min'";
         }
-        if($sort!=""){
-            $query.=" ORDER BY price_product $sort";
+        if ($sort != "") {
+            $query .= " ORDER BY price_product $sort";
         }
         $new = new DB();
         $kq = $new->chayTruyVanTraVeDL($new->con, $query);
         return $kq;
     }
 
+    function Editdata($id, $text, $colum)
+    {
+        $new = new DB();
+        $query = "UPDATE tbl_products SET $colum = '$text' WHERE id_product = '$id'";
+        $new->chayTruyVanKhongTraVeDL($new->con, $query);
+    }
     function Delete($a)
     {
         $new = new DB();
