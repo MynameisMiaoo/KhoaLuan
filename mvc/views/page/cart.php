@@ -51,57 +51,55 @@
                 <td>Size</td>
                 <td>Màu</td>
             </tr>
-            <?php
-            $_SESSION['tong'] = 0;
-            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) :
-            ?>
-                <tr>
-                    <td><?php echo $i + 1 ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][0]; ?></td>
-                    <!-- <td><?php echo $_SESSION['cart'][$i][1]; ?></td> -->
-                    <td><?php echo $_SESSION['cart'][$i][2]; ?></td>
-                    <td><img style="width: 150px;" src="<?php echo $_SESSION['cart'][$i][3]; ?>" alt="anh"></td>
-                    <!-- <td><?php echo $_SESSION['cart'][$i][4]; ?></td> -->
-                    <td><?php echo $_SESSION['cart'][$i][5]; ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][7]; ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][8]; ?></td>
-                    <td><?php echo $_SESSION['cart'][$i][9]; ?></td>
-                    <td><a href="/KhoaLuan/Cart/Delete/<?php echo $i ?>">Xoa</a></td>
-                </tr>
-                <?php $_SESSION['tong'] = $_SESSION['tong'] + $_SESSION['cart'][$i][2] * $_SESSION['cart'][$i][7] ?>
-            <?php
-            endfor;
-            ?>
+            <tbody id="cart_content">
+
+            </tbody>
         </table>
     </div>
     <div style="display: none;" id="tb">
         <h1>Gio hang trong</h1>
     </div>
-    <div>
-        <?php
-        if ($_SESSION['tong'] != 0) {
-            echo '<h1 id = "myh1" class ="abc">' . $_SESSION['tong'] . '</h1>';
-        }
-        ?>
-    </div>
     <div id="myDivv" class="hidden">
-        <a href="/KhoaLuan/Pay" class="btn btn-primary">Thanh Toan</a>
+        <h4 id="total"></h4>
+        <a href="/KhoaLuan/Pay" class="btn btn-primary" id="thanhtoan">Thanh Toan</a>
     </div>
     <div> <a href="/KhoaLuan/home" class="btn btn-primary">Tiep Tuc Mua</a></div>
     <script>
-        // Kiểm tra biến session
-        var sessionVariable = <?php echo count($_SESSION['cart']) > 0 ? 'true' : 'false'; ?>;
+        function Delete(element) {
+            var dataid = element.getAttribute('data-dataid');
+            $.ajax({
+                url: "/KhoaLuan/ajax/DeleteCart",
+                method: "POST",
+                data: {
+                    index: dataid
+                },
+                success: function(data) {
+                    LoadCart();
+                }
+            });
 
-        var myDiv = document.getElementById("myDivv");
-        var tb = document.getElementById("tb");
-        if (sessionVariable) {
-            // Thay đổi CSS để hiển thị div
-            myDiv.style.display = "block";
-        } else {
-            // Thay đổi CSS để ẩn div
-            myDiv.style.display = "none";
-            tb.style.display = "block";
         }
+
+        function LoadCart() {
+            $.ajax({
+                url: "/KhoaLuan/ajax/LoadCart",
+                method: "POST",
+                dataType: "json",
+                success: function(data) {
+                    $("#cart_content").html(data.html);
+                    var tem = data.cartCount;
+                    if (tem > 0) {
+                        $("#myDivv").show();
+                        $("#total").text(data.total);
+                    } else {
+                        $("#myDivv").hide();
+                    }
+                }
+            });
+        }
+        $(document).ready(function() {
+            LoadCart();
+        })
     </script>
 </body>
 

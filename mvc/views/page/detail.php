@@ -46,13 +46,13 @@
                         </div>
                         <div>
                             <!-- <a class="btn btn-primary" href="" role="button">Mua Ngay</a> -->
-                            <input type="hidden" name="id_product" value="<?php echo $row['id_product']; ?>">
-                            <input type="hidden" name="cate_id" value="<?php echo $row['cate_id']; ?>">
-                            <input type="hidden" name="img_product" id = "img_product" value="<?php echo $row['img_product']; ?>">
-                            <input type="hidden" name="des_product" value="<?php echo $row['des_product']; ?>">
-                            <input type="hidden" name="price_product" value="<?php echo $row['price_product']; ?>">
-                            <input type="hidden" name="name_product" value="<?php echo $row['name_product']; ?>">
-                            <input type="hidden" name="brand_product" value="<?php echo $row['brand_product']; ?>">
+                            <input type="hidden" name="id_product" id="idpr" value="<?php echo $row['id_product']; ?>">
+                            <input type="hidden" name="cate_id" id="catepr" value="<?php echo $row['cate_id']; ?>">
+                            <input type="hidden" name="img_product" id="img_product" value="<?php echo $row['img_product']; ?>">
+                            <input type="hidden" name="des_product" id="despr" value="<?php echo $row['des_product']; ?>">
+                            <input type="hidden" name="price_product" id="pricepr" value="<?php echo $row['price_product']; ?>">
+                            <input type="hidden" name="name_product" id="namepr" value="<?php echo $row['name_product']; ?>">
+                            <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand_product']; ?>">
                             <input type="hidden" name="size_product" id="size_product" value="">
                             <input type="hidden" name="color_product" id="color_product" value="">
                             <button type="button" style="display: none;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
@@ -99,6 +99,30 @@
             var color = document.getElementById("color_product");
             var selectedSize = null;
             var selectedColor = null;
+            $("#btn_buy").click(function() {
+                event.preventDefault();
+                var formdata = {
+                    id_product: $("#idpr").val(),
+                    cate_id: $("#catepr").val(),
+                    img_product: $("#img_product").val(),
+                    // img_product: $("#img_detail").src,
+                    des_product: $("#despr").val(),
+                    price_product: $("#pricepr").val(),
+                    name_product: $("#namepr").val(),
+                    brand_product: $("#brandpr").val(),
+                    size_product: $("#size_product").val(),
+                    color_product: $("#color_product").val(),
+                    count: $("#myip").val()
+                }
+                $.ajax({
+                    url: "/KhoaLuan/ajax/Cart",
+                    method: "POST",
+                    data: formdata,
+                    success: function(data) {
+                        window.location.href = "/KhoaLuan/Cart";
+                    }
+                });
+            })
             $(".size").click(function() {
                 $(".size").removeClass("selected");
                 $(this).addClass("selected");
@@ -125,7 +149,8 @@
                     },
                     success: function(data) {
                         var result = JSON.parse(data);
-                        img.src = "/KhoaLuan/"+result;
+                        img.src = "/KhoaLuan/" + result;
+                        img2.value = img.src;
                     }
                 });
 
@@ -160,10 +185,10 @@
             var count = parseInt(ip.value);
             ip.value = count - 1
         });
-        btn.addEventListener('click', function() {
-            img2.value=img.src;
-            myform.submit();
-        });
+        // btn.addEventListener('click', function() {
+        //     img2.value = img.src;
+        //     myform.submit();
+        // });
     </script>
 </body>
 

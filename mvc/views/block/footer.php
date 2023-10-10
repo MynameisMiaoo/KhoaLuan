@@ -65,7 +65,7 @@
                         email: uemail
                     }, function(data) {});
                     $("#errorContainer").text("Cảm ơn, chúng tôi đã nhận được email của bạn");
-                    $("#errorContainer").css("color","green");
+                    $("#errorContainer").css("color", "green");
                     $("#errorContainer").show();
                     setTimeout(function() {
                         $("#errorContainer").hide();
