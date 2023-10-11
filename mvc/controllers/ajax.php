@@ -193,4 +193,18 @@ class Ajax extends controller
             ]);
         }
     }
+    function CM()
+    {
+        $a = $_POST['id'];
+        $md = $this->model("comment_model");
+        $this->view("binhluan", [
+            "data" => $md->GetList($a),
+        ]);
+    }
+    function ADDCM()
+    {
+        $a = $_POST['id'];
+        $md = $this->model("comment_model");
+        $md->Add($a, $_SESSION['username'], $_POST['content']);
+    }
 }

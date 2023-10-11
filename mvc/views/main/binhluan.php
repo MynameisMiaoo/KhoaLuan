@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="height: auto;">
         <div class="row" id="divcomment">
             <!-- <hr class="myhr"> -->
             <div class="col-12">
@@ -21,7 +21,7 @@
                         <div class="avt">
                             <img src="/KhoaLuan/public/img/avt.jpg" alt="avt" style="width: 50px;">
                             <h6><?php echo $row['email_user'] ?></h6>
-                            <h6><?php echo $formatted_time = date("j F Y", strtotime($row['time_up']));?></h6>
+                            <h6><?php echo $formatted_time = date("j F Y", strtotime($row['time_up'])); ?></h6>
                         </div>
                         <div class="content">
                             <h1><?php echo $row['content_comment'] ?></h1>
@@ -31,21 +31,6 @@
                 <?php
                 endwhile
                 ?>
-                <div>
-                    <div class="form-floating">
-                        <form action="" method="post" id="my form">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
-                            <?php
-                            if (!isset($_SESSION['username'])) {
-                                echo '<button type="button" class="btn btn-success" onclick="redirectToLogin()">Dang Nhap De Binh Luan</button>';
-                            } else {
-                                echo '<button type="submit" class="btn btn-success" name="btn_dang" id="btn_dang">Dang</button>';
-                            }
-                            ?>
-                            <!-- <button type="button" class="btn btn-success" name="btn_dang" id="btn_dang">Dang</button> -->
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -29,8 +29,8 @@
                         <input type="password" class="form-control" placeholder="Input your password" name="password" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1" name="repass">Remember password</label>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
+                        <label class="form-check-label" for="exampleCheck1" name="repass">Remember email</label>
                     </div>
                     <div class="btnn">
                         <a type="btn" class="btn btn-dark" href="./phome">Back</a>

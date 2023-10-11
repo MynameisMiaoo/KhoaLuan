@@ -8,7 +8,7 @@ class comment_model{
     }
     function Add($a,$b,$c){
         $new = new DB();
-        $query = "Insert into tbl_comment (id_product, email_user, content_comment,time_up) values ('$a','$b','$c',NOW())";
+        $query = "Insert into tbl_comment (id_comment,id_product, email_user, content_comment,time_up) values (null,'$a','$b','$c',NOW())";
         $kq = $new->chayTruyVanKhongTraVeDL($new->con, $query);
     }
 

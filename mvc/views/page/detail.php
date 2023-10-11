@@ -83,7 +83,21 @@
         </div>
         <!-- binh luan -->
         <h1 class="mytitle">Binh Luan</h1>
-        <iframe src="/KhoaLuan/binhluan/Check/<?php echo $data['idproduct'] ?>" frameborder="0" style="height: 100vh; width: 100%;"></iframe>
+        <div id="content">
+
+        </div>
+        <div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content" data-dataid="<?php echo $data['idproduct'] ?>"></textarea>
+                <?php
+                if (!isset($_SESSION['username'])) {
+                    echo '<button type="button" class="btn btn-success" onclick="redirectToLogin()">Dang Nhap De Binh Luan</button>';
+                } else {
+                    echo '<button type="button" class="btn btn-success" name="btn_dang" id="btn_dang">Dang</button>';
+                }
+                ?>
+            </div>
+        </div>
     </div>
     </div>
     <script>
@@ -94,11 +108,41 @@
         var ip = document.getElementById('myip');
         var img = document.getElementById('img_detail');
         var img2 = document.getElementById('img_product');
+        $("#btn_dang").click(function() {
+            $.ajax({
+                url: "/KhoaLuan/ajax/ADDCM",
+                method: "POST",
+                data: {
+                    id: $("#floatingTextarea").data('dataid'),
+                    content: $("#floatingTextarea").val()
+                },
+                success: function(data) {
+                    $("#floatingTextarea").val("");
+                    LoadCm();
+                }
+            });
+        })
+
+        function LoadCm() {
+            $.ajax({
+                url: "/KhoaLuan/ajax/CM",
+                method: "POST",
+                data: {
+                    id: 1
+                },
+                success: function(data) {
+                    $("#content").html(data);
+                }
+            });
+
+        }
+
         $(document).ready(function() {
             var size = document.getElementById("size_product");
             var color = document.getElementById("color_product");
             var selectedSize = null;
             var selectedColor = null;
+            LoadCm();
             $("#btn_buy").click(function() {
                 event.preventDefault();
                 var formdata = {
@@ -185,10 +229,6 @@
             var count = parseInt(ip.value);
             ip.value = count - 1
         });
-        // btn.addEventListener('click', function() {
-        //     img2.value = img.src;
-        //     myform.submit();
-        // });
     </script>
 </body>
 

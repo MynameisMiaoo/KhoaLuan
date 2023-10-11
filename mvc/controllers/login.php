@@ -13,13 +13,11 @@ class login extends controller
     function Check()
     {
         if (isset($_POST["email"])) {
-            // $_SESSION["username"] = $_POST["email"];
-            // $_SESSION["password"] = $_POST["password"];    
             if ($_POST["email"] != "" && $_POST["password"] != "") {
                 $login = $this->model("user_model");
                 if ($login->Login($_POST["email"], $_POST["password"])) {
                     $_SESSION['username'] = $_POST["email"];
-                    if($_POST['email']=='admin@gmail.com'){
+                    if ($_POST['email'] == 'admin@gmail.com') {
                         header("Location: ../admin");
                         exit();
                     }
