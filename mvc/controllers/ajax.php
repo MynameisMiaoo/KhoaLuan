@@ -11,7 +11,7 @@ class Ajax extends controller
         $md = $this->model("product_model");
         $data = $md->GetList($from, 2);
         $this->view("ajax", [
-            "page" =>"Load_home",
+            "page" => "Load_home",
             "data" => $data
         ]);
     }
@@ -149,12 +149,12 @@ class Ajax extends controller
             <tr>
             <td>' . $i + 1 . '</td>
             <td>' . $_SESSION['cart'][$i][0] . '</td>
-            <td>' . $_SESSION['cart'][$i][2] . '</td>
             <td><img style="width: 150px;" src="' . $_SESSION['cart'][$i][3] . '" alt="anh"></td>
             <td>' . $_SESSION['cart'][$i][5] . '</td>
             <td>' . $_SESSION['cart'][$i][7] . '</td>
             <td>' . $_SESSION['cart'][$i][8] . '</td>
             <td>' . $_SESSION['cart'][$i][9] . '</td>
+            <td>' . $_SESSION['cart'][$i][2] . '</td>
             <td>
             <i class="fa-solid fa-trash" onclick="Delete(this)" style="color: #d41616;" data-dataid = "' . $i . '"></i>
             </td>
@@ -167,6 +167,16 @@ class Ajax extends controller
             <tr>
             <td colspan="9">Chưa có sản phẩm trong giỏ hàng của bạn</td>
             </tr>
+            ';
+        }
+        if($_SESSION['tong']>0){
+            $output.='
+                <tr>
+                <td>Tổng</td>
+                <td colspan="6"></td>
+                <td>'.$_SESSION['tong'].'</td>
+                <td></td>
+                </tr>
             ';
         }
         $response = array(
@@ -212,78 +222,61 @@ class Ajax extends controller
     }
     function Order()
     {
-        $output = '<table class="table">
-        <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">MA DON HANG</th>
-                <th scope="col">TEN</th>
-                <th scope="col">DIA CHI</th>
-                <th scope="col">SO DIEN THOAI</th>
-                <th scope="col">TOTAL</th>
-                <th scope="col">STATUS</th>
-
-            </tr>
-        </thead>
-        <tbody>
-        ';
         $status = $_POST['status'];
         $temp = $this->model("order_model");
         $result = $temp->GetListByStatus($status);
-        for ($i = 0; $i < sizeof($result); $i++) {
-            $output .= '
-                <tr ondblclick="Get(' . $result[$i]['id_oder'] . ')">
-                    <th scope="row">' . $i + 1 . '</th>
-                    <td>' . $result[$i]['id_oder'] . '</td>
-                    <td>' . $result[$i]['name_user'] . '</td>
-                    <td>' . $result[$i]['address'] . '</td>
-                    <td>' . $result[$i]['phone'] . '</td>
-                    <td>' . $result[$i]['total'] . '</td>
-                    <td>' . $result[$i]['status'] . '</td>
-                </tr>
-                    ';
-        }
-        $output .= '
-        </tbody>
-        </table>';
-        echo $output;
+        $this->view("ajax",[
+            "page" => "ajax_order",
+            "data" => $result
+        ]);
     }
     function GetOrder()
     {
         $ma = $_POST['id_oder'];
         $temp = $this->model("order_detail_model");
+        $md = $this->model("order_model");
+        $kq = $md->CheckStatus($ma);
         $result = $temp->GetList($ma);
-        $output = '
-        <span>Don hang: </span>
-        <span>' . $ma . '</span>
-        <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Ten</th>
-                <th scope="col">Gia</th>
-                <th scope="col">So Luong</th>
-                <th scope="col">Mau</th>
-                <th scope="col">Size</th>
-            </tr>
-        </thead>
-        <tbody>
-        ';
-        for ($i = 0; $i < sizeof($result); $i++) {
-            $output .= '
-                <tr>
-                    <th scope="row">' . $i + 1 . '</th>
-                    <td>' . $result[$i]['name_product'] . '</td>
-                    <td>' . $result[$i]['price_product'] . '</td>
-                    <td>' . $result[$i]['count_product'] . '</td>
-                    <td>' . $result[$i]['color'] . '</td>
-                    <td>' . $result[$i]['size'] . '</td>
-                </tr>
-                    ';
-        }
-        $output .= '
-        </tbody>
-        </table>';
-        echo $output;
+        $this->view("ajax", [
+            "page" => "ajax_ad_product",
+            "data" => $result,
+            "ma" => $ma,
+            "check" => $kq
+        ]);
+    }
+    function XuatKho()
+    {
+        $ma = intval($_POST['id']);
+        //can cap nhap trang thai 
+        $md = $this->model("order_model");
+        $temp = $this->model("order_detail_model");
+        $md2 = $this->model("products_detail_model");
+        $md->ChangeSatus($ma, 2);
+        //can update so luong 
+        //can lay duoc id size color va sl san pham cua don hang luu vao 1 mang 
+        $result = $temp->GetList($ma);
+        //update
+        $md2->CheckOut($result);
+    }
+    function NhapKho()
+    {
+        $ma = intval($_POST['id']);
+        $md = $this->model("order_model");
+        $temp = $this->model("order_detail_model");
+        $md2 = $this->model("products_detail_model");
+        $md->ChangeSatus($ma, 4);
+        $result = $temp->GetList($ma);
+        $md2->CheckIn($result);
+    }
+    function ChangeStatus()
+    {
+        $ma = intval($_POST['id']);
+        $md = $this->model("order_model");
+        $md->ChangeSatus($ma, 3);
+    }
+    function Cancel(){
+        $ma=$_POST['id'];
+        $md = $this->model("order_model");
+        $md->ChangeSatus($ma, 4);
     }
 }

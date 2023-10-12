@@ -17,8 +17,8 @@
                     <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="rounded float-end" alt="anh san pham" id="img_detail">
                 </div>
                 <div class="col-5">
-                    <h1><?php echo $row["name_product"] ?></h1>
-                    <h3><?php echo $row["price_product"] ?></h3>
+                    <h3><?php echo $row["name_product"] ?></h3>
+                    <h5><?php echo $row["price_product"] ?></h5>
                     <div class="tt" id="div_ajax">
                         <div class="box">
                             <?php for ($i = 0; $i < sizeof($data["size"]); $i++) : ?>
@@ -35,14 +35,17 @@
                             ?>
                         </div>
                         <div id="count_pr" style="display: none;">
+                            <span>Kho: </span>
                             <h5 id="h6count"></h5>
                         </div>
                     </div>
                     <form action="/KhoaLuan/Cart" method="post" id="myform">
-                        <div>
-                            <button id="btndec" type="button">-</button>
-                            <input id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;">
-                            <button id="btnadd" type="button">+</button>
+                        <div style="display: flex; align-items: center;">
+                            <!-- <button id="btndec" type="button">-</button> -->
+                            <i class="fa-solid fa-minus" id="btndec"></i>
+                            <input class="form-control" id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;">
+                            <!-- <button id="btnadd" type="button">+</button> -->
+                            <i class="fa-solid fa-plus" id="btnadd"></i>
                         </div>
                         <div>
                             <!-- <a class="btn btn-primary" href="" role="button">Mua Ngay</a> -->
@@ -55,16 +58,16 @@
                             <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand_product']; ?>">
                             <input type="hidden" name="size_product" id="size_product" value="">
                             <input type="hidden" name="color_product" id="color_product" value="">
-                            <button type="button" style="display: none;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
+                            <button type="button" class="btn btn-warning" style="display: none; margin-top: 10px;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
                     </form>
                 </div>
             </div>
         <?php
         endwhile ?>
         <!-- san pham lien quan -->
+        <hr class="myhr">
         <div class="row">
-            <hr class="myhr">
-            <h1 class="mytitle">San Pham Tuong Tu</h1>
+            <h1 class="mytitle">Sản Phẩm Tương Tự</h1>
             <?php while ($row = mysqli_fetch_assoc($data['data2'])) : ?>
                 <div class="col">
                     <div class="card" style="width: 18rem;">
@@ -82,18 +85,18 @@
             ?>
         </div>
         <!-- binh luan -->
-        <h1 class="mytitle">Binh Luan</h1>
+        <hr class="myhr">
+        <h1 class="mytitle">Bình Luận</h1>
         <div id="content">
-
         </div>
         <div>
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content" data-dataid="<?php echo $data['idproduct'] ?>"></textarea>
                 <?php
                 if (!isset($_SESSION['username'])) {
-                    echo '<button type="button" class="btn btn-success" onclick="redirectToLogin()">Dang Nhap De Binh Luan</button>';
+                    echo '<button type="button" class="btn btn-success" onclick="redirectToLogin()">Đăng nhập để bình luận</button>';
                 } else {
-                    echo '<button type="button" class="btn btn-success" name="btn_dang" id="btn_dang">Dang</button>';
+                    echo '<button type="button" class="btn btn-success" name="btn_dang" id="btn_dang">Đăng</button>';
                 }
                 ?>
             </div>
@@ -213,9 +216,10 @@
                         success: function(data) {
                             var result = JSON.parse(data);
                             $("#count_pr").css("display", "flex");
-                            $("#h6count").text("Kho: " + result);
+                            $("#h6count").text(result);
                             ip.max = parseInt(result);
                             $("#btn_buy").css("display", "flex");
+                            ip.value = 1;
                         }
                     });
                 }
@@ -223,11 +227,15 @@
         });
         add.addEventListener('click', function() {
             var count = parseInt(ip.value);
-            ip.value = count + 1
+            if (count < $("#h6count").text()) {
+                ip.value = count + 1
+            }
         });
         dec.addEventListener('click', function() {
             var count = parseInt(ip.value);
-            ip.value = count - 1
+            if (count > 1) {
+                ip.value = count - 1
+            }
         });
     </script>
 </body>

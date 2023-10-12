@@ -67,7 +67,9 @@
             ?>
         </div>
         <div class ="row">
-            <button id ="more">xem them</button>
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" id ="more">xem them</button>
+            </div>
         </div>
     </div>
     <script>

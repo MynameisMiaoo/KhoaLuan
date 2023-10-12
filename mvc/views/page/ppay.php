@@ -36,11 +36,24 @@
         .modal-body label {
             font-size: 16px;
         }
+
+        td,
+        th {
+            text-align: center;
+        }
+        button{
+            margin: 10px;
+        }
+        .divlb{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -61,7 +74,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay Lại</button>
                         <form action="/KhoaLuan/Pay" method="post" id="myForm">
                             <input name="selectedValue" id="selectedValue" type="hidden" value="">
                             <input type="hidden" value="" name="name" id="idname">
@@ -75,33 +88,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-5">
+                <div class="divlb"><h4>Thông Tin Nhận Hàng</h4></div>
                 <div class="input-group input-group-sm mb-3">
-                    <label for="" class="form-label" style="width: 100%;">Họ tên</label>
-                    <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <span  class="form-label" style="width: 100%;">Họ tên</span>
+                    <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <label for="" class="form-label" style="width: 100%;">Số điện thoại </label>
-                    <input type="text" id="sdt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <span  class="form-label" style="width: 100%;">Số điện thoại </span>
+                    <input type="text" id="sdt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <label for="" class="form-label" style="width: 100%;">Email</label>
-                    <input type="text" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <span  class="form-label" style="width: 100%;">Email</span>
+                    <input type="text" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <label for="" class="form-label" style="width: 100%;">Địa chỉ nhận hàng </label>
-                    <input type="text" id="diachi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <span  class="form-label" style="width: 100%;">Địa chỉ nhận hàng </span>
+                    <input type="text" id="diachi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
             </div>
-            <div class="col">
+            <div class="col-2"></div>
+            <div class="col-5">
+                <div class="divlb"><h4>Thông Tin Đơn Hàng</h4></div>
                 <div class="box">
-                    <table class="table">
+                    <table class="table table-success table-striped">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Sp</th>
-                                <th scope="col">SL</th>
-                                <th scope="col">TAM tINH</th>
+                                <th scope="col">STT</th>
+                                <th scope="col">Tên Sản Phẩm</th>
+                                <th scope="col">Số Lượng</th>
+                                <th scope="col">Tạm Tính</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,7 +133,7 @@
                             <?php
                             endfor; ?>
                             <tr>
-                                <th scope="row">Tong</th>
+                                <th scope="row">Tổng</th>
                                 <td></td>
                                 <td></td>
                                 <td>
@@ -129,9 +145,9 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 ">
-                <button class="btn btn-success" onclick="goback()" role="button">Gio Hang</button>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <button class="btn btn-success" onclick="goback()" role="button">Giỏ Hàng</button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Tiếp tục thanh toán
                 </button>

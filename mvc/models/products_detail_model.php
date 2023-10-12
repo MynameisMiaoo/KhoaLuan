@@ -76,4 +76,38 @@ class products_detail_model
         }
         return $result;
     }
+    function CheckOut($a)
+    {
+        $new = new DB();
+        for ($i = 0; $i < sizeof($a); $i++) {
+            $countProduct = intval($a[$i]['count_product']);
+            $idProduct = intval($a[$i]['id_product']);
+            $size = intval($a[$i]['id_size']);
+            $color = intval($a[$i]['id_color']);
+            $sql = "UPDATE tbl_products_detail
+                    SET count_product = count_product - $countProduct
+                    WHERE id_product = '$idProduct'
+                    AND id_size = $size
+                    AND id_color = $color";
+            $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
+        }
+        $new->giaiPhongBoNho($new->con, $kq);
+    }
+    function CheckIn($a)
+    {
+        $new = new DB();
+        for ($i = 0; $i < sizeof($a); $i++) {
+            $countProduct = intval($a[$i]['count_product']);
+            $idProduct = intval($a[$i]['id_product']);
+            $size = intval($a[$i]['id_size']);
+            $color = intval($a[$i]['id_color']);
+            $sql = "UPDATE tbl_products_detail
+                    SET count_product = count_product + $countProduct
+                    WHERE id_product = '$idProduct'
+                    AND id_size = $size
+                    AND id_color = $color";
+            $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
+        }
+        $new->giaiPhongBoNho($new->con, $kq);
+    }
 }

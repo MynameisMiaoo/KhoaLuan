@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         table {
             width: 100%;
@@ -21,7 +19,8 @@
         th,
         td {
             padding: 8px;
-            text-align: left;
+            text-align: center;
+            vertical-align: middle;
         }
 
         th {
@@ -68,15 +67,15 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Img</th>
-                        <th scope="col">Describe</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Cate_Id</th>
-                        <th scope="col">Brand</th>
+                        <th scope="col">Mã ID</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Thương Hiệu</th>
                         <th scope="col"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                New
+                                Thêm Mới
                             </button>
                         </th>
                     </tr>
@@ -95,8 +94,8 @@
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-primary">Xác Nhận</button>
                         </div>
                     </div>
                 </div>
@@ -105,7 +104,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Thêm Mới Sản Phẩm</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -120,8 +119,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="submit">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="submit">Xác nhận</button>
                         </div>
                     </div>
                 </div>

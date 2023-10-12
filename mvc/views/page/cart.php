@@ -8,7 +8,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 80%;
+            width: 100%;
         }
 
         th,
@@ -33,37 +33,49 @@
         .hidden {
             display: none;
         }
+
+        a {
+            margin: 5px;
+        }
+
+        span {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="divtb">
-        <table>
-            <tr>
-                <td>STT</td>
-                <td>Tên</td>
-                <!-- <td>Id</td> -->
-                <td>Giá</td>
-                <td>Ảnh</td>
-                <!-- <td>Mo Ta</td> -->
-                <td>Thương Hiệu</td>
-                <td>Số Lượng</td>
-                <td>Size</td>
-                <td>Màu</td>
-            </tr>
-            <tbody id="cart_content">
-
-            </tbody>
-        </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table>
+                    <tr>
+                        <td>STT</td>
+                        <td>Tên</td>
+                        <td>Ảnh</td>
+                        <td>Thương Hiệu</td>
+                        <td>Số Lượng</td>
+                        <td>Size</td>
+                        <td>Màu</td>
+                        <td>Giá</td>
+                        <td>Xóa</td>
+                    </tr>
+                    <tbody id="cart_content">
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- <div style="display: none;" id="tb">
+            <h1>Giỏ hàng trống</h1>
+        </div> -->
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <a href="/KhoaLuan/home" class="btn btn-primary">Tiếp Tục Mua</a>
+                <a href="/KhoaLuan/Pay" class="btn btn-primary" id="thanhtoan">Thanh Toán</a>
+            </div>
+        </div>
     </div>
-    <div style="display: none;" id="tb">
-        <h1>Gio hang trong</h1>
-    </div>
-    <div id="myDivv" class="hidden">
-        <h4 id="total"></h4>
-        <a href="/KhoaLuan/Pay" class="btn btn-primary" id="thanhtoan">Thanh Toan</a>
-    </div>
-    <div> <a href="/KhoaLuan/home" class="btn btn-primary">Tiep Tuc Mua</a></div>
     <script>
         function Delete(element) {
             var dataid = element.getAttribute('data-dataid');
@@ -89,10 +101,9 @@
                     $("#cart_content").html(data.html);
                     var tem = data.cartCount;
                     if (tem > 0) {
-                        $("#myDivv").show();
-                        $("#total").text(data.total);
+                        $("#thanhtoan").show();
                     } else {
-                        $("#myDivv").hide();
+                        $("#thanhtoan").hide();
                     }
                 }
             });

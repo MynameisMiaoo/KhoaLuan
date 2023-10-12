@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/Khoaluan/public/css/nav.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/02dbb38eba.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

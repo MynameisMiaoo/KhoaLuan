@@ -7,6 +7,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="./public/css/login.css">
     <script src="./KhoaLuan/public/javascript/login.js"></script>
+    <script src="https://kit.fontawesome.com/02dbb38eba.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
@@ -22,11 +23,11 @@
                 <form method="POST" id="f1" action="login/Check">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Input your email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Input your email" aria-describedby="emailHelp" autocomplete="off" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Input your password" name="password" id="exampleInputPassword1">
+                        <input type="password" class="form-control" placeholder="Input your password" name="password" id="exampleInputPassword1" required>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
@@ -44,15 +45,15 @@
                     </div> -->
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="re_email" id="exampleInputEmail1" placeholder="Input your email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" name="re_email" id="exampleInputEmail1" placeholder="Input your email" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="re_password" placeholder="Input your password" id="exampleInputPassword1">
+                        <input type="password" class="form-control" name="re_password" placeholder="Input your password" id="exampleInputPassword1" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" name="re_repass" placeholder="Input your password" id="exampleInputPassword1">
+                        <input type="password" class="form-control" name="re_repass" placeholder="Input your password" id="exampleInputPassword1" required>
                     </div>
                     <div class="btnn">
                         <a type="btn" class="btn btn-dark" href="./phome">Back</a>

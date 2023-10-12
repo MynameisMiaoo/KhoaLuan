@@ -20,11 +20,12 @@
 }
 
 .myhr {
-    border: none;
-    height: 4px;
+    border: #000;
+    height: 10px;
     background-color: #888181;
     /* margin: 0 auto; */
-    width: 90%;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .size {
@@ -34,6 +35,7 @@
     margin-right: 10px;
     cursor: pointer;
     border-radius: 20%;
+    margin-bottom: 5px;
 }
 .color {
     display: inline-block;
@@ -42,6 +44,7 @@
     margin-right: 10px;
     cursor: pointer;
     border-radius: 20%;
+    margin-bottom: 5px;
 }
 
 .size.selected {
@@ -49,6 +52,13 @@
 }
 .color.selected {
     background-color: yellow;
+}
+span{
+    margin-right: 10px;
+}
+i{
+    padding: 5px;
+    cursor: pointer;
 }
 
 
