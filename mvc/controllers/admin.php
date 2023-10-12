@@ -63,4 +63,11 @@ class admin extends controller
             ]);
         }
     }
+    function Order(){
+        $temp = $this->model("order_model");
+        $this->view("madmin", [
+            "page" => "ad_order",
+            "data" => $temp->GetListByStatus(1),
+        ]);
+    }
 }

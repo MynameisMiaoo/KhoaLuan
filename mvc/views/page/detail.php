@@ -128,7 +128,7 @@
                 url: "/KhoaLuan/ajax/CM",
                 method: "POST",
                 data: {
-                    id: 1
+                    id: $("#idpr").val()
                 },
                 success: function(data) {
                     $("#content").html(data);

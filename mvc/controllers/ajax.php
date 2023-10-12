@@ -11,6 +11,7 @@ class Ajax extends controller
         $md = $this->model("product_model");
         $data = $md->GetList($from, 2);
         $this->view("ajax", [
+            "page" =>"Load_home",
             "data" => $data
         ]);
     }
@@ -187,7 +188,8 @@ class Ajax extends controller
             $result = $md->GetList($madh);
             $md2 = $this->model("order_model");
             $kq = $md2->GetByorderId($madh);
-            $this->view("history", [
+            $this->view("ajax", [
+                "page" => "ajax_history",
                 "data" => $result,
                 "info" => $kq
             ]);
@@ -197,7 +199,8 @@ class Ajax extends controller
     {
         $a = $_POST['id'];
         $md = $this->model("comment_model");
-        $this->view("binhluan", [
+        $this->view("ajax", [
+            "page" => "ajax_comment",
             "data" => $md->GetList($a),
         ]);
     }
@@ -206,5 +209,81 @@ class Ajax extends controller
         $a = $_POST['id'];
         $md = $this->model("comment_model");
         $md->Add($a, $_SESSION['username'], $_POST['content']);
+    }
+    function Order()
+    {
+        $output = '<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">MA DON HANG</th>
+                <th scope="col">TEN</th>
+                <th scope="col">DIA CHI</th>
+                <th scope="col">SO DIEN THOAI</th>
+                <th scope="col">TOTAL</th>
+                <th scope="col">STATUS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        ';
+        $status = $_POST['status'];
+        $temp = $this->model("order_model");
+        $result = $temp->GetListByStatus($status);
+        for ($i = 0; $i < sizeof($result); $i++) {
+            $output .= '
+                <tr ondblclick="Get(' . $result[$i]['id_oder'] . ')">
+                    <th scope="row">' . $i + 1 . '</th>
+                    <td>' . $result[$i]['id_oder'] . '</td>
+                    <td>' . $result[$i]['name_user'] . '</td>
+                    <td>' . $result[$i]['address'] . '</td>
+                    <td>' . $result[$i]['phone'] . '</td>
+                    <td>' . $result[$i]['total'] . '</td>
+                    <td>' . $result[$i]['status'] . '</td>
+                </tr>
+                    ';
+        }
+        $output .= '
+        </tbody>
+        </table>';
+        echo $output;
+    }
+    function GetOrder()
+    {
+        $ma = $_POST['id_oder'];
+        $temp = $this->model("order_detail_model");
+        $result = $temp->GetList($ma);
+        $output = '
+        <span>Don hang: </span>
+        <span>' . $ma . '</span>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Ten</th>
+                <th scope="col">Gia</th>
+                <th scope="col">So Luong</th>
+                <th scope="col">Mau</th>
+                <th scope="col">Size</th>
+            </tr>
+        </thead>
+        <tbody>
+        ';
+        for ($i = 0; $i < sizeof($result); $i++) {
+            $output .= '
+                <tr>
+                    <th scope="row">' . $i + 1 . '</th>
+                    <td>' . $result[$i]['name_product'] . '</td>
+                    <td>' . $result[$i]['price_product'] . '</td>
+                    <td>' . $result[$i]['count_product'] . '</td>
+                    <td>' . $result[$i]['color'] . '</td>
+                    <td>' . $result[$i]['size'] . '</td>
+                </tr>
+                    ';
+        }
+        $output .= '
+        </tbody>
+        </table>';
+        echo $output;
     }
 }

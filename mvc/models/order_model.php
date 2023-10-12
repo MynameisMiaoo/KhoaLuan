@@ -31,4 +31,16 @@ class order_model
         $row=mysqli_fetch_assoc($result);
         return $row;
     }
+    function GetListByStatus($st1){
+        $new = new DB();
+        $sql = "Select * from tbl_order
+        join tbl_status on tbl_order.status = tbl_status.id_status 
+        where tbl_order.status = '$st1'";
+        $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
+        $kqkq = array();
+        while($row=mysqli_fetch_assoc($kq)){
+            array_push($kqkq,$row);
+        }
+        return $kqkq;
+    }
 }
