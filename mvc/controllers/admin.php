@@ -5,7 +5,19 @@ class admin extends controller
     {
         //kiem tra xem da dang nhap bang tk admin chua
         if (isset($_SESSION['username']) && $_SESSION['username'] == "admin@gmail.com") {
-            $this->view("madmin", ["page" => "ad_admin"]);
+            $md = $this->model("order_model");
+            $doanhthu = $md->GetRevenue();
+            $count = intval($md->GetCount());
+            $pcancel = intval($md->GetCancel());
+            $this->view(
+                "madmin",
+                [
+                    "page" => "ad_admin",
+                    "revenue" => $doanhthu,
+                    "count" => $count,
+                    "cancel" => $pcancel
+                ],
+            );
         } else {
             header("Location: /KhoaLuan/phome");
             exit();
@@ -63,7 +75,8 @@ class admin extends controller
             ]);
         }
     }
-    function Order(){
+    function Order()
+    {
         $temp = $this->model("order_model");
         $this->view("madmin", [
             "page" => "ad_order",

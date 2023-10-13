@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Khoaluan/phome">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/phome">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Jordan">Jordan</a>
+                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Jordan">Jordan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Adidas">Adidas</a>
+                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Adidas">Adidas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/Khoaluan/category/Nike">Nike</a>
+                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Nike">Nike</a>
                     </li>
                     <!-- <li class="nav-item">
                         <div class="dropdown">
@@ -62,7 +62,7 @@
                 </ul>
                 <form class="d-flex" method="GET" id="myformm">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
-                    <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/Search')">Search</button>
+                    <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/search')">Search</button>
                 </form>
                 <div class="dropdown" style="width: auto; margin-left: 15px;">
                     <div class="dropdown__select">
@@ -70,7 +70,7 @@
                         <i class="fa-sharp fa-solid fa-cart-shopping fa-shake" style="color: #24a350;"></i>
                     </div>
                     <ul class="dropdown__list">
-                        <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/Cart')">
+                        <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/cart')">
                             <span class="dropdown__text">Giỏ Hàng</span>
                         </li>
                         <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/Paydone')">
@@ -79,7 +79,7 @@
                     </ul>
                 </div>
                 <div style="cursor: pointer; padding-left: 15px;">
-                    <span onclick="Login('/KhoaLuan/Login')">
+                    <span onclick="Login('/KhoaLuan/login')">
                         <?php
                         if (isset($_SESSION['username'])) {
                             echo "LogOut";

@@ -25,7 +25,7 @@
                     <hr>
                     <?php for ($i = 0; $i < sizeof($data['data']); $i++) : ?>
                         <div style="cursor: pointer; width: 100%;" class="madh" id="iddh" data-dataid="<?php echo $data["data"][$i][0] ?>">
-                            <span><?php echo $data['data'][$i][0] ?></span>
+                            <p>Mã đơn hàng: <?php echo $data['data'][$i][0] ?></p>
                             <p>Ngày đặt: <?php echo $data["data"][$i][1] ?></p>
                         </div>
                         <hr>

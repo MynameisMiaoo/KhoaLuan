@@ -68,7 +68,7 @@
         </div>
         <div class ="row">
             <div class="col-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary" id ="more">xem them</button>
+                <button type="button" class="btn btn-secondary" id ="more">Xem thêm</button>
             </div>
         </div>
     </div>
