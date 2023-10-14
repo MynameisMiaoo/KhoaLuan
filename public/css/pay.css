@@ -1,0 +1,43 @@
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+.modal-body {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-body div {
+    margin-bottom: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal-body input[type="radio"] {
+    margin-right: 10px;
+}
+
+.modal-body img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.modal-body label {
+    font-size: 16px;
+}
+
+td,
+th {
+    text-align: center;
+}
+button{
+    margin: 10px;
+}
+.divlb{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}

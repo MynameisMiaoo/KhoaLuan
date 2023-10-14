@@ -19,7 +19,7 @@ class admin extends controller
                 ],
             );
         } else {
-            header("Location: /KhoaLuan/phome");
+            header("Location: /KhoaLuan/home");
             exit();
         }
         //*******************/

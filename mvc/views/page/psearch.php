@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
+    <link href="/KhoaLuan/public/css/search.css" rel="stylesheet"> 
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                             <h2><?php echo $row["price_product"] ?> đ</h2>
                             <h5 class="card-title"><?php echo $row["name_product"] ?></h5>
                             <p class="card-text"><?php echo $row["des_product"] ?></p>
-                            <a href="/KhoaLuan/Category/<?php echo $row["brand_product"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                            <a href="/KhoaLuan/category/<?php echo $row["brand_product"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
                         </div>
                     </div>
                 </div>

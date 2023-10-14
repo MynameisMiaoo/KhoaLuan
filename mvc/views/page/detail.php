@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/Khoaluan/public/css/detail.css" rel="stylesheet">
-    <title>details</title>
+    <link href="/KhoaLuan/public/css/detail.css" rel="stylesheet">
+    <title>Chi tiết</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                             <h5 id="h6count"></h5>
                         </div>
                     </div>
-                    <form action="/KhoaLuan/Cart" method="post" id="myform">
+                    <form action="/KhoaLuan/cart" method="post" id="myform">
                         <div style="display: flex; align-items: center;">
                             <!-- <button id="btndec" type="button">-</button> -->
                             <i class="fa-solid fa-minus" id="btndec"></i>

@@ -4,54 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/KhoaLuan/public/css/pay.css" rel="stylesheet">
     <title>Pay</title>
-    <style>
-        .highlight {
-            background-color: yellow;
-            color: black;
-        }
-
-        .modal-body {
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .modal-body div {
-            margin-bottom: 30px;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .modal-body input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .modal-body img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        .modal-body label {
-            font-size: 16px;
-        }
-
-        td,
-        th {
-            text-align: center;
-        }
-        button{
-            margin: 10px;
-        }
-        .divlb{
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-    </style>
 </head>
-
 <body>
     <div class="container">
         <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,27 +44,31 @@
         </div>
         <div class="row">
             <div class="col-5">
-                <div class="divlb"><h4>Thông Tin Nhận Hàng</h4></div>
+                <div class="divlb">
+                    <h4>Thông Tin Nhận Hàng</h4>
+                </div>
                 <div class="input-group input-group-sm mb-3">
-                    <span  class="form-label" style="width: 100%;">Họ tên</span>
+                    <span class="form-label" style="width: 100%;">Họ tên</span>
                     <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <span  class="form-label" style="width: 100%;">Số điện thoại </span>
+                    <span class="form-label" style="width: 100%;">Số điện thoại </span>
                     <input type="text" id="sdt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <span  class="form-label" style="width: 100%;">Email</span>
+                    <span class="form-label" style="width: 100%;">Email</span>
                     <input type="text" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <span  class="form-label" style="width: 100%;">Địa chỉ nhận hàng </span>
+                    <span class="form-label" style="width: 100%;">Địa chỉ nhận hàng </span>
                     <input type="text" id="diachi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
                 </div>
             </div>
             <div class="col-2"></div>
             <div class="col-5">
-                <div class="divlb"><h4>Thông Tin Đơn Hàng</h4></div>
+                <div class="divlb">
+                    <h4>Thông Tin Đơn Hàng</h4>
+                </div>
                 <div class="box">
                     <table class="table table-success table-striped">
                         <thead>

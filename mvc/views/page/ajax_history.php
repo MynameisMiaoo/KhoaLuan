@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/KhoaLuan/public/css/ajax_history.css" rel="stylesheet">
 </head>
 
 <body>
@@ -94,7 +95,7 @@
                 <?php if ($data['info']['id_status'] == 1) : ?>
                     <a class="btn btn-danger" type="button" role="button" style="margin: 5px;" id="btn_huy" data-dataid="<?php echo $data['info']['id_oder']?>">Hủy Đặt Hàng</a>
                 <?php endif; ?>
-                <a class="btn btn-primary" href="/KhoaLuan/phome" role="button" style="margin: 5px;">Tiếp Tục Mua Hàng</a>
+                <a class="btn btn-primary" href="/KhoaLuan/home" role="button" style="margin: 5px;">Tiếp Tục Mua Hàng</a>
             </div>
         </div>
     </div>

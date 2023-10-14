@@ -39,7 +39,7 @@ class App
             $main = explode("/", filter_var(trim($_GET["url"], "/")));
             return $main;
         } else {
-            return ["Home"];
+            return ["home"];
         }
     }
 }

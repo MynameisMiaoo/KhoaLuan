@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/KhoaLuan/public/css/fter.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,10 +16,10 @@
                     <li>
                         <div class="line"></div>
                     </li>
-                    <li><a href="/Khoaluan/category/Adidas" id="link">Adidas</a></li>
-                    <li><a href="/Khoaluan/category/Nike" id="link">Nike</a>
+                    <li><a href="/KhoaLuan/category/Adidas" id="link">Adidas</a></li>
+                    <li><a href="/KhoaLuan/category/Nike" id="link">Nike</a>
                     </li>
-                    <li><a href="/Khoaluan/category/Jordan" id="link">Jordan</a></li>
+                    <li><a href="/KhoaLuan/category/Jordan" id="link">Jordan</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-sm-12">

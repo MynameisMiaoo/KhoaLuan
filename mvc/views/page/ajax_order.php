@@ -4,17 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        td{
-            text-align: center;
-        }
-        th{
-            text-align: center;
-        }
-        tr{
-            cursor: pointer;
-        }
-    </style>
+    <link href="/KhoaLuan/public/css/ajax_order.css" rel="stylesheet">
 </head>
 
 <body>

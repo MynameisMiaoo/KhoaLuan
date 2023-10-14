@@ -4,59 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        input {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        textarea {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .inner-div {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            background-color: green;
-        }
-
-        .inner-div2 {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            background-color: green;
-        }
-    </style>
+    <link href="/KhoaLuan/public/css/ad_product.css" rel="stylesheet">
 </head>
 
 <body>

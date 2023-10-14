@@ -21,7 +21,7 @@ class login extends controller
                         header("Location: ../admin");
                         exit();
                     }
-                    header("Location: ../phome");
+                    header("Location: ../home");
                     exit();
                 } else {
                     header("Location: ../login");

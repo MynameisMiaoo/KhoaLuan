@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/Khoaluan/public/css/nav.css" rel="stylesheet">
+    <link href="/KhoaLuan/public/css/header.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/phome">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Jordan">Jordan</a>

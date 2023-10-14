@@ -4,44 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/KhoaLuan/public/css/cart.css" rel="stylesheet">
     <title>Cart</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-            justify-content: center;
-            justify-items: center;
-        }
-
-        .divtb {
-            display: flex;
-            justify-content: center;
-        }
-
-        img {
-            width: 20%;
-            height: auto;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        a {
-            margin: 5px;
-        }
-
-        span {
-            margin-left: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -61,7 +25,7 @@
                         <td>Xóa</td>
                     </tr>
                     <tbody id="cart_content">
-        
+
                     </tbody>
                 </table>
             </div>

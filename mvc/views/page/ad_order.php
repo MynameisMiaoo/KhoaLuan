@@ -4,34 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        td,
-        th {
-            text-align: center;
-        }
-
-        tr {
-            cursor: pointer;
-        }
-
-        .row {
-            display: flex;
-            justify-content: center;
-        }
-
-        .col {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 50px;
-            background-color: yellow;
-            cursor: pointer;
-        }
-
-        .highlight {
-            background-color: cyan;
-        }
-    </style>
+    <link href="/KhoaLuan/public/css/ad_order.css" rel="stylesheet">
 </head>
 
 <body>
