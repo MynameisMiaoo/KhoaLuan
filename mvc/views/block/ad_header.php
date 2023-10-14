@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/KhoaLuan/admin/Order">Order</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KhoaLuan/admin/Mail">Mail</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Database

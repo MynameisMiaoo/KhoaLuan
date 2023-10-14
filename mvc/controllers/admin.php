@@ -83,4 +83,11 @@ class admin extends controller
             "data" => $temp->GetListByStatus(1),
         ]);
     }
+    function Mail(){
+        $temp = $this->model("email_model");
+        $this->view("madmin", [
+            "page" => "ad_mail",
+            "data" => $temp->GetList()
+        ]);
+    }
 }

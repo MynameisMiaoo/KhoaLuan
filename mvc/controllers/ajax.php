@@ -1,7 +1,15 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'mvc/phpmailer/src/Exception.php';
+require 'mvc/phpmailer/src/PHPMailer.php';
+require 'mvc/phpmailer/src/SMTP.php';
+
 class Ajax extends controller
 {
-
     const count = 1;
     function SayHi()
     {
@@ -169,12 +177,12 @@ class Ajax extends controller
             </tr>
             ';
         }
-        if($_SESSION['tong']>0){
-            $output.='
+        if ($_SESSION['tong'] > 0) {
+            $output .= '
                 <tr>
                 <td>Tổng</td>
                 <td colspan="6"></td>
-                <td>'.$_SESSION['tong'].'</td>
+                <td>' . $_SESSION['tong'] . '</td>
                 <td></td>
                 </tr>
             ';
@@ -225,7 +233,7 @@ class Ajax extends controller
         $status = $_POST['status'];
         $temp = $this->model("order_model");
         $result = $temp->GetListByStatus($status);
-        $this->view("ajax",[
+        $this->view("ajax", [
             "page" => "ajax_order",
             "data" => $result
         ]);
@@ -274,9 +282,56 @@ class Ajax extends controller
         $md = $this->model("order_model");
         $md->ChangeSatus($ma, 3);
     }
-    function Cancel(){
-        $ma=$_POST['id'];
+    function Cancel()
+    {
+        $ma = $_POST['id'];
         $md = $this->model("order_model");
         $md->ChangeSatus($ma, 4);
+    }
+    function SendMail()
+    {
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $temp = $this->model("email_model");
+        $arr = $temp->GetList();
+        for ($i = 0; $i < sizeof($arr); $i++) {
+            $mail = new PHPMailer(true);
+            if (filter_var($arr[$i]['email'], FILTER_VALIDATE_EMAIL)) {
+                try {
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                    $mail->isSMTP();
+                    $mail->Host       = 'smtp.gmail.com';
+                    $mail->SMTPAuth   = true;
+                    $mail->Username   = 'minaxinhdep2022@gmail.com';
+                    $mail->Password   = 'gpdf uwkc hmae nouf';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->Port       = 465;
+
+                    $mail->setFrom('minaxinhdep2022@gmail.com', 'Shop');
+                    $mail->addAddress($arr[$i]['email'], 'User');
+                    // $mail->addAddress('test@hdhwqudhua','Test');               
+                    // $mail->addReplyTo('info@example.com', 'Information');
+                    // $mail->addCC('cc@example.com');
+                    // $mail->addBCC('bcc@example.com');
+                    if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
+                        $image = $_FILES['image'];
+                        $targetDirectory = "public/img/";
+                        $targetFile = $targetDirectory . basename($image["name"]);
+                        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+                        if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+                            $imagePath = $targetFile;
+                        }
+                        $mail->addAttachment($imagePath);
+                    }
+                    $mail->isHTML(true);
+                    $mail->Subject = $title;
+                    $mail->Body    = $content;
+                    $mail->AltBody = '';
+                    $mail->send();
+                } catch (Exception $e) {
+                    echo "Message could not be sent.";
+                }
+            }
+        }
     }
 }

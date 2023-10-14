@@ -20,4 +20,14 @@ class email_model
             return false;
         }
     }
+    function GetList(){
+        $new = new DB();
+        $query = "select * from  tbl_email";
+        $kq=$new->chayTruyVanTraVeDL($new->con, $query);
+        $arr = array();
+        while($row = mysqli_fetch_assoc($kq)){
+            array_push($arr,$row);
+        }
+        return $arr;
+    }
 }
