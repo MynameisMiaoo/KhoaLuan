@@ -8,87 +8,84 @@
 </head>
 
 <body>
-    <span>Mã đơn hàng: </span>
-    <span id="madh"><?php echo $data['ma'] ?></span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Tên</th>
-                <th scope="col">Giá</th>
-                <th scope="col">Số Lượng</th>
-                <th scope="col">Màu</th>
-                <th scope="col">Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            for ($i = 0; $i < sizeof($data['data']); $i++) : ?>
+    <?php if ($data['status'] == 1) : ?>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <th scope="row"><?php echo $i + 1 ?></th>
-                    <td> <?php echo $data['data'][$i]['name_product'] ?></td>
-                    <td> <?php echo $data['data'][$i]['price_product'] ?></td>
-                    <td> <?php echo $data['data'][$i]['count_product'] ?></td>
-                    <td> <?php echo $data['data'][$i]['color'] ?></td>
-                    <td> <?php echo $data['data'][$i]['size'] ?></td>
+                    <th scope="col">Mã ID</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Thể Loại</th>
+                    <th scope="col">Thương Hiệu</th>
+                    <th scope="col"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Thêm Mới
+                        </button>
+                    </th>
                 </tr>
-            <?php endfor; ?>
-        </tbody>
-    </table>
-    <?php if ($data['check'] == "1") : ?>
-        <button type="button" class="btn btn-success" id="btn_xk">Xuất Kho</button>
+            </thead>
+            <tbody>
+                <?php if (mysqli_num_rows($data['data']) == 0) : ?>
+                    <tr>
+                        <td colspan="8">Chưa có sản phẩm nào!</td>
+                    </tr>
+                <?php endif; ?>
+                <?php while ($row = mysqli_fetch_assoc($data['data'])) : ?>
+                    <tr>
+                        <th scope="row"><?php echo $row["id_product"]; ?></th>
+                        <td class="mytdname" data-dataid="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"> <?php echo $row["name_product"]; ?></td>
+                        <td class="mytdimg" data-dataimg="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing2(this)"><img id="myimg" style="width: 150px;" src="/KhoaLuan/<?php echo $row["img_product"]; ?>" alt="anh san pham"></td>
+                        <td class="mytddes" data-datades="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["des_product"]; ?></td>
+                        <td class="mytdprice" data-dataprice="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["price_product"]; ?></td>
+                        <td class="mytdcate" data-datacate="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["cate_product"]; ?></td>
+                        <td class="mytdbrand" data-databrand="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["brand"]; ?></td>
+                        <td>
+                            <i class="fa-solid fa-eye-slash" style="color: #f2023e;" onclick="Xoa(this,2)" data-dataid="<?php echo $row["id_product"]; ?>" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
     <?php endif; ?>
-    <?php if ($data['check'] == "2") : ?>
-        <button type="button" class="btn btn-success" id="btn_nk">Hủy</button>
-        <button type="button" class="btn btn-success" id="btn_xn">Đã Giao Hàng</button>
+    <?php if ($data['status'] == 2) : ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Mã ID</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Thể Loại</th>
+                    <th scope="col">Thương Hiệu</th>
+                    <th scope="col">Hiển Thị</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (mysqli_num_rows($data['data']) == 0) : ?>
+                    <tr>
+                        <td colspan="8">Chưa có sản phẩm nào!</td>
+                    </tr>
+                <?php endif; ?>
+                <?php while ($row = mysqli_fetch_assoc($data['data'])) : ?>
+                    <tr>
+                        <th scope="row"><?php echo $row["id_product"]; ?></th>
+                        <td class="mytdname" data-dataid="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"> <?php echo $row["name_product"]; ?></td>
+                        <td class="mytdimg" data-dataimg="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing2(this)"><img id="myimg" style="width: 150px;" src="/KhoaLuan/<?php echo $row["img_product"]; ?>" alt="anh san pham"></td>
+                        <td class="mytddes" data-datades="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["des_product"]; ?></td>
+                        <td class="mytdprice" data-dataprice="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["price_product"]; ?></td>
+                        <td class="mytdcate" data-datacate="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["cate_product"]; ?></td>
+                        <td class="mytdbrand" data-databrand="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["brand"]; ?></td>
+                        <td>
+                            <i class="fa-solid fa-eye" style="color: #ed720c;" onclick="Xoa(this,1)" data-dataid="<?php echo $row["id_product"]; ?>" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
     <?php endif; ?>
-    <script>
-        $("#btn_xk").click(function() {
-            //sua trang thai thanh 2 va tru coun trong kho 
-            $.ajax({
-                url: "/KhoaLuan/ajax/XuatKho",
-                method: "POST",
-                //can chuyen ma don hang 
-                data: {
-                    id: $("#madh").text()
-                },
-                success: function(data) {
-                    window.location.href = "/KhoaLuan/admin/Order";
-                    alert("Done");
-                }
-            });
-        })
-        $("#btn_nk").click(function() {
-            //sua trang thai thanh 2 va tru coun trong kho 
-            $.ajax({
-                url: "/KhoaLuan/ajax/NhapKho",
-                method: "POST",
-                //can chuyen ma don hang 
-                data: {
-                    id: $("#madh").text()
-                },
-                success: function(data) {
-                    window.location.href = "/KhoaLuan/admin/Order";
-                    alert("Done");
-                }
-            });
-        })
-        $("#btn_xn").click(function() {
-            //sua trang thai thanh 2 va tru coun trong kho 
-            $.ajax({
-                url: "/KhoaLuan/ajax/ChangeStatus",
-                method: "POST",
-                //can chuyen ma don hang 
-                data: {
-                    id: $("#madh").text()
-                },
-                success: function(data) {
-                    window.location.href = "/KhoaLuan/admin/Order";
-                    alert("Done");
-                }
-            });
-        })
-    </script>
+
 </body>
 
 </html>

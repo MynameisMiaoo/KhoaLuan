@@ -23,15 +23,41 @@ class Ajax extends controller
             "data" => $data
         ]);
     }
+    function AddColor()
+    {
+        $color = $_POST['color'];
+        $md = $this->model("color_model");
+        $md->Add($color);
+    }
+    function AddSize()
+    {
+        $size = $_POST['size'];
+        $md = $this->model("size_model");
+        $md->Add($size);
+    }
+    function GetProduct()
+    {
+        $id = $_POST['idsp'];
+        $md = $this->model("product_model");
+        $kq = $md->Search($id);
+        $this->view("ajax", [
+            "page" => "ajax_ad_detail_product",
+            "data" => $kq
+        ]);
+    }
     function Insert()
     {
         $name = $_POST['name'];
         $price = $_POST['price'];
         $category = $_POST['category'];
+        $color = $_POST['color'];
+        $size  = $_POST['size'];
+        $count = $_POST['count'];
         $brand = $_POST['brand'];
         $description = $_POST['description'];
         $image = $_FILES['image'];
         $temp = $this->model("product_model");
+        $md = $this->model("products_detail_model");
         $targetDirectory = "public/img/";
         $targetFile = $targetDirectory . basename($image["name"]);
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -46,6 +72,7 @@ class Ajax extends controller
             $brand,
             $imagePath,
         );
+        $md->AddDetail( $temp->GetIdLast(), $color, $size, $imagePath, $count);
     }
     function EditImage()
     {
@@ -71,26 +98,56 @@ class Ajax extends controller
     }
     function Load()
     {
+        $status = $_POST['status'];
         $temp = $this->model("product_model");
-        $kq = $temp->GetListFull();
-        $output = "";
-        while ($row = mysqli_fetch_assoc($kq)) {
-            $output .= '
-                <tr>
-                <th scope="row">' . $row["id_product"] . '</th>
-                <td class ="mytdname" data-dataid=' . $row["id_product"] . ' ondblclick="enableEditing(this)">' . $row["name_product"] . '</td>
-                <td class = "mytdimg"  data-dataimg=' . $row["id_product"] . ' ondblclick="enableEditing2(this)"><img id ="myimg" style="width: 150px;" src="/KhoaLuan/' . $row['img_product'] . '" alt="' . $row['img_product'] . '"></td>              
-                <td class = "mytddes" data-datades=' . $row["id_product"] . ' ondblclick="enableEditing(this)">' . $row["des_product"] . '</td>
-                <td class = "mytdprice" data-dataprice=' . $row["id_product"] . ' ondblclick="enableEditing(this)">' . $row["price_product"] . '</td>
-                <td class = "mytdcate" data-datacate=' . $row["id_product"] . ' ondblclick="enableEditing(this)">' . $row["cate_id"] . '</td>
-                <td class = "mytdbrand" data-databrand=' . $row["id_product"] . ' ondblclick="enableEditing(this)">' . $row["brand_product"] . '</td>
-                <td>
-                 <i class="fa-solid fa-trash" onclick="Xoa(this)"  data-dataid = ' . $row["id_product"] . ' data-bs-toggle="modal" data-bs-target="#exampleModal2"></i> 
-                </td>
-                </tr>
-            ';
+        $kq = $temp->GetListFull($status);
+        $this->view("ajax", [
+            "page" => "ajax_ad_product",
+            "data" => $kq,
+            "status" => $status
+        ]);
+    }
+    function LoadList()
+    {
+        $status = $_POST['status'];
+        $temp = $this->model("product_model");
+        $kq = $temp->GetListFull($status);
+        $this->view("ajax", [
+            "page" => "ajax_ad_detail_product",
+            "data" => $kq,
+            "status" => $status
+        ]);
+    }
+    function GetDetailProduct()
+    {
+        $id = $_POST['idsp'];
+        $temp = $this->model("products_detail_model");
+        $color = $this->model("color_model");
+        $size = $this->model("size_model");
+        $kq = $temp->GetById($id);
+        $this->view("ajax", [
+            "page" => "ajax_detail_product",
+            "data" => $kq,
+            "color" => $color->GetListColor(),
+            "size" => $size->GetListSize(),
+            "id" => $id
+        ]);
+    }
+    function AddDetailProduct()
+    {
+        $id = $_POST['id'];
+        $size = $_POST['size'];
+        $color = $_POST['color'];
+        $count = $_POST['count'];
+        $image = $_FILES["image"];
+        $targetDirectory = "public/img/";
+        $targetFile = $targetDirectory . basename($image["name"]);
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+            $imagePath = $targetFile;
         }
-        echo $output;
+        $md = $this->model("products_detail_model");
+        $md->AddDetail($id, $color, $size, $imagePath, $count);
     }
     function Email()
     {
@@ -118,8 +175,9 @@ class Ajax extends controller
     function Delete()
     {
         $id = $_POST["id_product"];
+        $status = $_POST["status"];
         $temp = $this->model("product_model");
-        $temp->Delete($id);
+        $temp->Delete($id, $status);
     }
     //cart 
     function Cart()
@@ -246,7 +304,7 @@ class Ajax extends controller
         $kq = $md->CheckStatus($ma);
         $result = $temp->GetList($ma);
         $this->view("ajax", [
-            "page" => "ajax_ad_product",
+            "page" => "ajax_order_detail",
             "data" => $result,
             "ma" => $ma,
             "check" => $kq

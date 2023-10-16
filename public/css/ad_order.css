@@ -19,6 +19,7 @@ tr {
     height: 50px;
     background-color: yellow;
     cursor: pointer;
+    margin: 0px 10px;
 }
 
 .highlight {

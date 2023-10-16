@@ -77,9 +77,13 @@ class order_model
 
             . "    tbl_order\n"
 
+            . "   JOIN tbl_status ON tbl_order.status = tbl_status.id_status\n"
+
             . "WHERE \n"
 
-            . "    EXTRACT(MONTH FROM orderdate) = EXTRACT(MONTH FROM CURRENT_DATE)\n"
+            . "    tbl_status.status = 'Đã giao hàng'\n"
+
+            . "    AND EXTRACT(MONTH FROM orderdate) = EXTRACT(MONTH FROM CURRENT_DATE)\n"
 
             . "    AND EXTRACT(YEAR FROM orderdate) = EXTRACT(YEAR FROM CURRENT_DATE)\n"
 
@@ -91,10 +95,13 @@ class order_model
 
             . "    EXTRACT(YEAR FROM orderdate), EXTRACT(MONTH FROM orderdate);";
         $kq = $new->chayTruyVanTraVeDL($new->con, $sql);
-        while ($row = mysqli_fetch_assoc($kq)) {
-            $result = $row['revenue'];
+        if (mysqli_num_rows($kq) != 0) {
+            while ($row = mysqli_fetch_assoc($kq)) {
+                $result = $row['revenue'];
+            }
+            return $result;
         }
-        return $result;
+        return 0;
     }
     function GetCount()
     {

@@ -1,10 +1,26 @@
 <?php
 class products_detail_model
 {
+    function AddDetail($id, $color, $size, $imagePath, $count)
+    {
+        $new = new DB();
+        $sql = "SELECT * FROM tbl_products_detail WHERE id_product='$id' AND id_color='$color' AND id_size='$size'";
+        $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
+        if (mysqli_num_rows($kq) == 0) {
+            $query = "INSERT INTO tbl_products_detail (id_products_detail, id_product, id_color, img_product, id_size, count_product) VALUES (null, '$id', '$color', '$imagePath', '$size', '$count')";
+            $kq = $new->chayTruyVanKhongTraVeDL($new->con, $query);
+        } else {
+            $query = "UPDATE tbl_products_detail SET count_product = '$count', img_product = '$imagePath' WHERE id_product='$id' AND id_color='$color' AND id_size='$size'";
+            $kq = $new->chayTruyVanKhongTraVeDL($new->con, $query);
+        }
+    }
     function GetById($a)
     {
         $new = new DB();
-        $query = "Select * from tbl_products_detail where id_product = '$a'";
+        $query = "Select * from tbl_products_detail 
+        join tbl_color on tbl_products_detail.id_color = tbl_color.id_color
+        join tbl_size on tbl_products_detail.id_size = tbl_size.id_size
+        where id_product = '$a'";
         $kq = $new->chayTruyVanTraVeDL($new->con, $query);
         return $kq;
     }

@@ -3,7 +3,7 @@ class category extends controller
 {
     function SayHi()
     {
-        $this->view("main", ["page" => "phome"]);
+        $this->view("main", ["page" => "home"]);
     }
     function Adidas()
     {

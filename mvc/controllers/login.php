@@ -6,6 +6,7 @@ class login extends controller
     {
         if (isset($_SESSION['username'])) {
             unset($_SESSION['username']);
+            unset($_SESSION['cart']);
         }
         $this->view("mlogin", []);
     }

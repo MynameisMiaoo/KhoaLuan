@@ -16,7 +16,7 @@
                     <h2><?php echo $row["price_product"] ?> đ</h2>
                     <h5 class="card-title"><?php echo $row["name_product"] ?></h5>
                     <p class="card-text"><?php echo $row["des_product"] ?></p>
-                    <a href="/KhoaLuan/category/<?php echo $row["brand_product"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                    <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
                 </div>
             </div>
         </div>

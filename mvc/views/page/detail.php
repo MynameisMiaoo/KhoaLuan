@@ -42,10 +42,10 @@
                     <form action="/KhoaLuan/cart" method="post" id="myform">
                         <div style="display: flex; align-items: center;">
                             <!-- <button id="btndec" type="button">-</button> -->
-                            <i class="fa-solid fa-minus" id="btndec"></i>
-                            <input class="form-control" id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;">
+                            <!-- <i class="fa-solid fa-minus" id="btndec"></i> -->
+                            <input class="form-control" id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;" onchange="Check()">
                             <!-- <button id="btnadd" type="button">+</button> -->
-                            <i class="fa-solid fa-plus" id="btnadd"></i>
+                            <!-- <i class="fa-solid fa-plus" id="btnadd"></i> -->
                         </div>
                         <div>
                             <!-- <a class="btn btn-primary" href="" role="button">Mua Ngay</a> -->
@@ -55,7 +55,7 @@
                             <input type="hidden" name="des_product" id="despr" value="<?php echo $row['des_product']; ?>">
                             <input type="hidden" name="price_product" id="pricepr" value="<?php echo $row['price_product']; ?>">
                             <input type="hidden" name="name_product" id="namepr" value="<?php echo $row['name_product']; ?>">
-                            <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand_product']; ?>">
+                            <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand']; ?>">
                             <input type="hidden" name="size_product" id="size_product" value="">
                             <input type="hidden" name="color_product" id="color_product" value="">
                             <button type="button" class="btn btn-warning" style="display: none; margin-top: 10px;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
@@ -76,7 +76,7 @@
                             <h2><?php echo $row["price_product"] ?> đ</h2>
                             <h5 class="card-title"><?php echo $row["name_product"] ?></h5>
                             <p class="card-text"><?php echo $row["des_product"] ?></p>
-                            <a href="/KhoaLuan/category/<?php echo $row["brand_product"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                            <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
                         </div>
                     </div>
                 </div>
@@ -106,8 +106,8 @@
     <script>
         var btn = document.getElementById('btn_buy');
         var myform = document.getElementById('myform');
-        var add = document.getElementById('btnadd');
-        var dec = document.getElementById('btndec');
+        // var add = document.getElementById('btnadd');
+        // var dec = document.getElementById('btndec');
         var ip = document.getElementById('myip');
         var img = document.getElementById('img_detail');
         var img2 = document.getElementById('img_product');
@@ -161,14 +161,18 @@
                     color_product: $("#color_product").val(),
                     count: $("#myip").val()
                 }
-                $.ajax({
-                    url: "/KhoaLuan/ajax/Cart",
-                    method: "POST",
-                    data: formdata,
-                    success: function(data) {
-                        window.location.href = "/KhoaLuan/cart";
-                    }
-                });
+                if (ip.value > 0 && ip.value <= parseInt($("#h6count").text())) {
+                    $.ajax({
+                        url: "/KhoaLuan/ajax/Cart",
+                        method: "POST",
+                        data: formdata,
+                        success: function(data) {
+                            window.location.href = "/KhoaLuan/cart";
+                        }
+                    });
+                } else {
+                    alert("Vui lòng nhập đúng số lượng");
+                }
             })
             $(".size").click(function() {
                 $(".size").removeClass("selected");
@@ -218,25 +222,30 @@
                             $("#count_pr").css("display", "flex");
                             $("#h6count").text(result);
                             ip.max = parseInt(result);
-                            $("#btn_buy").css("display", "flex");
+                            // $("#btn_buy").css("display", "flex");
+                            if ($("#h6count").text() != 0) {
+                                $("#btn_buy").css("display", "flex");
+                            } else {
+                                $("#btn_buy").css("display", "none");
+                            }
                             ip.value = 1;
                         }
                     });
                 }
             }
         });
-        add.addEventListener('click', function() {
-            var count = parseInt(ip.value);
-            if (count < $("#h6count").text()) {
-                ip.value = count + 1
-            }
-        });
-        dec.addEventListener('click', function() {
-            var count = parseInt(ip.value);
-            if (count > 1) {
-                ip.value = count - 1
-            }
-        });
+        // add.addEventListener('click', function() {
+        //     var count = parseInt(ip.value);
+        //     if (count < $("#h6count").text()) {
+        //         ip.value = count + 1
+        //     }
+        // });
+        // dec.addEventListener('click', function() {
+        //     var count = parseInt(ip.value);
+        //     if (count > 1) {
+        //         ip.value = count - 1
+        //     }
+        // });
     </script>
 </body>
 

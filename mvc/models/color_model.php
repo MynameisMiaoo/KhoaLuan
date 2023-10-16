@@ -20,4 +20,24 @@ class color_model
         $result = $row['color'];
         return $result;
     }
+    function GetListColor()
+    {
+        $new = new DB();
+        $query = "Select * from tbl_color";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        return $kq;
+    }
+    function Add($color)
+    {
+        $new = new DB();
+        $query = "select * from tbl_color where color='$color'";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        if (mysqli_num_rows($kq) == 0) {
+            $sql = "Insert into tbl_color (id_color,color) values (null,'$color')";
+            $kq = $new->chayTruyVanTraVeDL($new->con, $sql);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

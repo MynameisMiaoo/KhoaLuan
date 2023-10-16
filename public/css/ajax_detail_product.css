@@ -1,0 +1,10 @@
+img{
+    width: 100px;
+    height: auto;
+}
+table{
+    text-align: center;
+}
+tr{
+    cursor: pointer;
+}

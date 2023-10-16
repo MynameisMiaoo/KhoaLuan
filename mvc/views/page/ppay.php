@@ -7,6 +7,7 @@
     <link href="/KhoaLuan/public/css/pay.css" rel="stylesheet">
     <title>Pay</title>
 </head>
+
 <body>
     <div class="container">
         <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,7 +108,7 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <button class="btn btn-success" onclick="goback()" role="button">Giỏ Hàng</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="btn_xn">
                     Tiếp tục thanh toán
                 </button>
             </div>
@@ -115,6 +116,23 @@
 
     </div>
     <script>
+        // $(document).ready(function() {
+        //     $("#btn_xn").click(function() {
+        //         var name = $("#name").val().trim();
+        //         var sdt = $("#sdt").val().trim();
+        //         var email = $("#email").val().trim();
+        //         var diachi = $("#diachi").val().trim();
+
+        //         if (name !== "" && sdt !== "" && email !== "" && diachi !== "") {
+        //             // Đã nhập đủ thông tin, mở modal
+        //             $("#staticBackdrop").modal("show");
+        //         } else {
+        //             // Hiển thị thông báo yêu cầu nhập đủ thông tin
+        //             alert("Vui lòng nhập đầy đủ thông tin trước khi thanh toán.");
+        //         }
+        //     });
+        // });
+
         function goback() {
             window.history.back();
         }

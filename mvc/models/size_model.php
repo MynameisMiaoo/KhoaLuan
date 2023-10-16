@@ -20,4 +20,24 @@ class size_model
         $result = $row['size'];
         return $result;
     }
+    function GetListSize()
+    {
+        $new = new DB();
+        $query = "Select * from tbl_size";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        return $kq;
+    }
+    function Add($size)
+    {
+        $new = new DB();
+        $query = "select * from tbl_size where size='$size'";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        if (mysqli_num_rows($kq) == 0) {
+            $sql = "Insert into tbl_size (id_size,size) values (null,'$size')";
+            $kq = $new->chayTruyVanTraVeDL($new->con, $sql);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
