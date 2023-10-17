@@ -1,5 +1,95 @@
-#img{
-    width: auto;
-    height: 70vh;
+.imgcarou {
+    width: 100%;
+    height: 65vh;
 }
 
+.product-section {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color: #dfe1e7;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.product-section .decorated-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #453d35;
+    position: relative;
+}
+
+.product-section .decorator {
+    display: inline-block;
+    font-size: 24px;
+    color: #000000;
+    margin: 0 5px;
+}
+
+.product-section .decorator::before,
+.product-section .decorator::after {
+    content: " ";
+    display: inline-block;
+    height: 2px;
+    background-color: #000000;
+    vertical-align: middle;
+}
+
+.product-section .decorator::before {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.product-section .decorator::after {
+    width: 20px;
+    margin-left: 5px;
+}
+
+.row {
+    margin: 10px 15px;
+}
+
+.card-img-top {
+    width: auto;
+    height: 250px;
+    overflow: hidden;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.card-title {
+    margin-top: 3px;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c5858;
+}
+
+.rating {
+    color: gold;
+    font-size: 24px;
+}
+
+.vnd {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.detail {
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mycol{
+    margin-bottom: 20px;
+}

@@ -44,33 +44,49 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-5">
-                <div class="divlb">
-                    <h4>Thông Tin Nhận Hàng</h4>
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="form-label" style="width: 100%;">Họ tên</span>
-                    <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="form-label" style="width: 100%;">Số điện thoại </span>
-                    <input type="text" id="sdt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="form-label" style="width: 100%;">Email</span>
-                    <input type="text" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="form-label" style="width: 100%;">Địa chỉ nhận hàng </span>
-                    <input type="text" id="diachi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off">
-                </div>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-5">
-                <div class="divlb">
-                    <h4>Thông Tin Đơn Hàng</h4>
+            <div class="col-7">
+                <div class="box">
+                    <div class="divlb">
+                        <h4>Thông Tin Nhận Hàng</h4>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="form-label" style="width: 100%;">Họ tên</span>
+                        <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off" placeholder="Nhập họ và tên người nhận">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="form-label" style="width: 100%;">Số điện thoại </span>
+                        <input type="text" id="sdt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off" placeholder="Nhập số điện thoại người nhận">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="form-label" style="width: 100%;">Email</span>
+                        <input type="text" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off" placeholder="Nhập email người nhận">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="form-label" style="width: 100%;">Địa chỉ nhận hàng </span>
+                        <input type="text" id="diachi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autocomplete="off" placeholder="Nhập địa chỉ nhận hàng">
+                    </div>
                 </div>
                 <div class="box">
+                    <span class="form-label" style="width: 100%;">Hình thức giao hàng</span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <p class="form-check-label" for="flexRadioDefault1">
+                            Nhanh
+                        </p>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <p class="form-check-label" for="flexRadioDefault2">
+                            Hỏa tốc
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="box">
+                    <div class="divlb">
+                        <h4>Thông Tin Đơn Hàng</h4>
+                    </div>
                     <table class="table table-success table-striped">
                         <thead>
                             <tr>

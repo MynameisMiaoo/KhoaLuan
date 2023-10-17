@@ -4,11 +4,12 @@
     left: 0;
     width: 100%;
     z-index: 9999;
+    background-image: linear-gradient(#ffdbc7, #ffbbe9);
 }
 
 :root {
-    --primary: #de4b3e;
-    --secondary: #c74237;
+    --primary: #ffff;
+    --secondary: #efe4d3;
 }
 
 .dropdown {
@@ -58,6 +59,7 @@
 }
 
 .dropdown__item {
+    margin: 0px;
     width: 100%;
     padding: 10px;
     background-color: var(--primary);
@@ -83,9 +85,43 @@
 .dropdown__item:last-child {
     border-radius: 0 0 4px 4px;
 }
+
 /* .dropdown__select:hover{
 
 } */
 .dropdown__item:hover {
     background-color: var(--secondary);
+}
+
+.custom-search-button {
+    background-color: #fff;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    min-width: 50px;
+}
+
+.custom-search-button:hover {
+    background-color: #eee;
+}
+
+.custom-search-button i {
+    color: #4222e2;
+}
+
+.custom-search-input {
+    min-width: 300px;
+}
+
+.myimg {
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #ffff;
+    /* Đổi màu văn bản khi hover */
+}
+
+.span:hover {
+    color: red;
 }

@@ -1,22 +1,6 @@
 #img_detail {
-    width:70%;
+    width: 70%;
     height: auto;
-}
-
-/* .box {
-    width: 60px;
-    height: 40px;
-    background-color: red;
-} */
-
-/* .box-color {
-    width: 60px;
-    height: 40px;
-    background-color: red;
-} */
-
-.row {
-    padding-bottom: 20px;
 }
 
 .myhr {
@@ -37,6 +21,7 @@
     border-radius: 20%;
     margin-bottom: 5px;
 }
+
 .color {
     display: inline-block;
     border: 2px solid #000;
@@ -50,16 +35,141 @@
 .size.selected {
     background-color: yellow;
 }
+
 .color.selected {
     background-color: yellow;
 }
-span{
+
+span {
     margin-right: 10px;
 }
-i{
+
+i {
     padding: 5px;
     cursor: pointer;
 }
 
+.divimg {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
 
-/* can css lai  */
+.product-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #dfe1e7;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.product-section .decorated-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #453d35;
+    position: relative;
+}
+
+.product-section .decorator {
+    display: inline-block;
+    font-size: 24px;
+    color: #000000;
+    margin: 0 5px;
+}
+
+.product-section .decorator::before,
+.product-section .decorator::after {
+    content: " ";
+    display: inline-block;
+    height: 2px;
+    background-color: #000000;
+    vertical-align: middle;
+}
+
+.product-section .decorator::before {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.product-section .decorator::after {
+    width: 20px;
+    margin-left: 5px;
+}
+
+.card-img-top {
+    width: auto;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-title {
+    margin-top: 3px;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c5858;
+}
+
+.rating {
+    color: gold;
+    font-size: 24px;
+}
+
+.vnd {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.detail {
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mycol {
+    margin-bottom: 20px;
+}
+
+#div_ajax {
+    margin-top: 10px;
+}
+
+.divcout {
+    margin-top: 10px;
+}
+
+#count_pr {
+    margin-top: 10px;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.btncm {
+    margin-top: 20px;
+}
+
+.itemcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#content {
+    padding: 40px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}

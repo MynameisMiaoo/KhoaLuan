@@ -18,59 +18,74 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/KhoaLuan/public/img/demo1.jpg" class="d-block w-100" id="img" alt="anh 1">
+                    <img src="/KhoaLuan/public/img/demo1.jpg" class="d-block imgcarou" alt="anh 1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/KhoaLuan/public/img/demo2.jpg" class="d-block w-100" id="img" alt="anh 2">
+                    <img src="/KhoaLuan/public/img/demo2.jpg" class="d-block imgcarou" alt="anh 2">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
                         <p>Some representative placeholder content for the second slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/KhoaLuan/public/img/demo3.jpg" class="d-block w-100" id="img" alt="anh 3">
+                    <img src="/KhoaLuan/public/img/demo3.jpg" class="d-block imgcarou" alt="anh 3">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Third slide label</h5>
                         <p>Some representative placeholder content for the third slide.</p>
                     </div>
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            </div> <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">Trước</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">Sau</span>
             </button>
         </div>
-        <div>
-            <label for="">San Pham Noi Bat</label>
+        <div class="product-section">
+            <span class="decorated-text">
+                <span class="decorator">★</span>
+                <b>SẢN PHẨM NỔI BẬT</b>
+                <span class="decorator">★</span>
+            </span>
         </div>
-        <div class="row" id="ds">
-            <?php while ($row = mysqli_fetch_assoc($data["data"])) : ?>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<?php echo $row["img_product"] ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2><?php echo $row["price_product"] ?> đ</h2>
-                            <h5 class="card-title"><?php echo $row["name_product"] ?></h5>
-                            <p class="card-text"><?php echo $row["des_product"] ?></p>
-                            <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+        <div class="container">
+            <div class="row" id="ds">
+                <?php while ($row = mysqli_fetch_assoc($data["data"])) : ?>
+                    <div class="col col-lg-3 col-sm-6 mycol">
+                        <div class="card">
+                            <img src="<?php echo $row["img_product"] ?>" class="card-img-top" alt="Anh san pham">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo strtoupper($row["name_product"]) ?></h5>
+                                <div class="rating">
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <div class="price">
+                                    <span class="vnd"><?php echo $formattedAmount = number_format($row["price_product"], 0, ',', '.'); ?> đ</span>
+                                </div>
+                                <div class="detail">
+                                    <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                                </div>
+                            </div> 
                         </div>
                     </div>
+                <?php
+                endwhile;
+                ?>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" id="more">Xem thêm</button>
                 </div>
-            <?php
-            endwhile;
-            ?>
-        </div>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary" id="more">Xem thêm</button>
             </div>
         </div>
     </div>

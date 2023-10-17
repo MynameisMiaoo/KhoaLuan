@@ -8,25 +8,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNav">
+    <nav class="navbar navbar-expand-lg navbar-light" id="myNav">
         <div class="container-fluid">
             <nav class="navbar navbar-light bg-light">
                 <div class="container">
-                    <a class="navbar-brand">
+                    <a class="navbar-brand" href="#">
                         <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="logo" width="30" height="24">
                     </a>
                 </div>
-            </nav>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </nav> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/home">Home</a>
+                        <a class="nav-link active " aria-current="page" href="/KhoaLuan/home">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Jordan">Jordan</a>
+                        <a class="nav-link active " aria-current="page" href="/KhoaLuan/category/Jordan">Jordan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Adidas">Adidas</a>
@@ -34,42 +33,17 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Nike">Nike</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <div class="dropdown">
-                            <div class="dropdown__select">
-                                <span class="dropdown__selected">Gio Hang</span>
-                                <i class="fa-sharp fa-solid fa-cart-shopping fa-shake" style="color: #24a350;"></i>
-                            </div>
-                            <ul class="dropdown__list">
-                                <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/Cart')">
-                                    <span class="dropdown__text">Giỏ Hàng</span>
-                                </li>
-                                <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/Paydone')">
-                                    <span class="dropdown__text">Lịch Sử Mua Hàng</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <form class="d-flex" method="GET" id="myformm">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
-                            <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/Search')">Search</button>
-                        </form>
-                    </li> -->
-                    <!-- <li class="nav-item">
-        
-                    </li> -->
                 </ul>
                 <form class="d-flex" method="GET" id="myformm">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inputContent" name="ct_search">
-                    <button class="btn btn-outline-success" type="submit" onclick="setFormAction('/KhoaLuan/search')">Search</button>
+                    <input class="form-control me-2 custom-search-input" type="search" placeholder="Nhập từ khóa tìm kiếm" aria-label="Search" id="inputContent" name="ct_search">
+                    <button class="btn custom-search-button" type="submit" onclick="setFormAction('/KhoaLuan/search')"><i class="fa-solid fa-magnifying-glass" style="color: #4222e2;"></i></button>
                 </form>
                 <div class="dropdown" style="width: auto; margin-left: 15px;">
                     <div class="dropdown__select">
-                        <span class="dropdown__selected">Gio Hang</span>
+                        <!-- <span class="dropdown__selected">Giỏ hàng</span> -->
                         <i class="fa-sharp fa-solid fa-cart-shopping fa-shake" style="color: #24a350;"></i>
                     </div>
-                    <ul class="dropdown__list">
+                    <ul class="dropdown__list" style="width: max-content;">
                         <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/cart')">
                             <span class="dropdown__text">Giỏ Hàng</span>
                         </li>
@@ -79,16 +53,16 @@
                     </ul>
                 </div>
                 <div style="cursor: pointer; padding-left: 15px;">
-                    <span onclick="Login('/KhoaLuan/login')">
+                    <i class="fa-solid fa-user"></i>
+                    <span onclick="Login('/KhoaLuan/login')" style="margin: 0px 5px;" class="span">
                         <?php
                         if (isset($_SESSION['username'])) {
-                            echo "LogOut";
+                            echo "Đăng Xuất";
                         } else {
-                            echo "LogIn";
+                            echo "Đăng Nhập";
                         }
                         ?>
                     </span>
-                    <i class="fa-solid fa-user"></i>
                 </div>
             </div>
         </div>
@@ -98,7 +72,8 @@
         function redirectTo(url) {
             window.location.href = url;
         }
-        function Login(url){
+
+        function Login(url) {
             window.location.href = url;
         }
 

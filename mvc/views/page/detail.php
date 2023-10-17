@@ -9,16 +9,25 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <!-- chi tiet  -->
         <?php while ($row = mysqli_fetch_assoc($data["data"])) : ?>
             <div class="row">
-                <div class="col-7">
+                <div class="col col-lg-7 col-sm-12 divimg">
                     <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="rounded float-end" alt="anh san pham" id="img_detail">
                 </div>
-                <div class="col-5">
-                    <h3><?php echo $row["name_product"] ?></h3>
-                    <h5><?php echo $row["price_product"] ?></h5>
+                <div class="col col-lg-5 col-sm-12">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <div class="info">
+                        <h3><?php echo strtoupper($row["name_product"]) ?></h3>
+                        <h5><?php echo  $formattedAmount = number_format($row["price_product"], 0, ',', '.');  ?> đ</h5>
+                    </div>
                     <div class="tt" id="div_ajax">
                         <div class="box">
                             <?php for ($i = 0; $i < sizeof($data["size"]); $i++) : ?>
@@ -39,69 +48,91 @@
                             <h5 id="h6count"></h5>
                         </div>
                     </div>
+                    <div class="divcout" style="display: flex; align-items: center;">
+                        <input class="form-control" id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;" onchange="Check()">
+                    </div>
                     <form action="/KhoaLuan/cart" method="post" id="myform">
-                        <div style="display: flex; align-items: center;">
-                            <!-- <button id="btndec" type="button">-</button> -->
-                            <!-- <i class="fa-solid fa-minus" id="btndec"></i> -->
-                            <input class="form-control" id="myip" type="number" value="1" name="count" max="" min=1 autocomplete="off" required style="width:100px; text-align: center;" onchange="Check()">
-                            <!-- <button id="btnadd" type="button">+</button> -->
-                            <!-- <i class="fa-solid fa-plus" id="btnadd"></i> -->
-                        </div>
-                        <div>
-                            <!-- <a class="btn btn-primary" href="" role="button">Mua Ngay</a> -->
-                            <input type="hidden" name="id_product" id="idpr" value="<?php echo $row['id_product']; ?>">
-                            <input type="hidden" name="cate_id" id="catepr" value="<?php echo $row['cate_id']; ?>">
-                            <input type="hidden" name="img_product" id="img_product" value="<?php echo $row['img_product']; ?>">
-                            <input type="hidden" name="des_product" id="despr" value="<?php echo $row['des_product']; ?>">
-                            <input type="hidden" name="price_product" id="pricepr" value="<?php echo $row['price_product']; ?>">
-                            <input type="hidden" name="name_product" id="namepr" value="<?php echo $row['name_product']; ?>">
-                            <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand']; ?>">
-                            <input type="hidden" name="size_product" id="size_product" value="">
-                            <input type="hidden" name="color_product" id="color_product" value="">
-                            <button type="button" class="btn btn-warning" style="display: none; margin-top: 10px;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
+                        <input type="hidden" name="id_product" id="idpr" value="<?php echo $row['id_product']; ?>">
+                        <input type="hidden" name="cate_id" id="catepr" value="<?php echo $row['cate_id']; ?>">
+                        <input type="hidden" name="img_product" id="img_product" value="<?php echo $row['img_product']; ?>">
+                        <input type="hidden" name="des_product" id="despr" value="<?php echo $row['des_product']; ?>">
+                        <input type="hidden" name="price_product" id="pricepr" value="<?php echo $row['price_product']; ?>">
+                        <input type="hidden" name="name_product" id="namepr" value="<?php echo $row['name_product']; ?>">
+                        <input type="hidden" name="brand_product" id="brandpr" value="<?php echo $row['brand']; ?>">
+                        <input type="hidden" name="size_product" id="size_product" value="">
+                        <input type="hidden" name="color_product" id="color_product" value="">
+                        <button type="button" class="btn btn-warning" style="display: none; margin-top: 10px;" id="btn_buy">Thêm Vào Giỏ Hàng</button>
                     </form>
                 </div>
             </div>
         <?php
-        endwhile ?>
+        endwhile;
+        ?>
         <!-- san pham lien quan -->
-        <hr class="myhr">
+        <div class="product-section">
+            <span class="decorated-text">
+                <span class="decorator">★</span>
+                <b>SẢN PHẨM TƯƠNG TỰ</b>
+                <span class="decorator">★</span>
+            </span>
+        </div>
         <div class="row">
-            <h1 class="mytitle">Sản Phẩm Tương Tự</h1>
-            <?php while ($row = mysqli_fetch_assoc($data['data2'])) : ?>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="card-img-top" alt="...">
+            <?php while ($row = mysqli_fetch_assoc($data["data2"])) : ?>
+                <div class="col col-lg-3 col-sm-6 mycol">
+                    <div class="card">
+                        <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="card-img-top" alt="Anh san pham">
                         <div class="card-body">
-                            <h2><?php echo $row["price_product"] ?> đ</h2>
-                            <h5 class="card-title"><?php echo $row["name_product"] ?></h5>
-                            <p class="card-text"><?php echo $row["des_product"] ?></p>
-                            <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                            <h5 class="card-title"><?php echo strtoupper($row["name_product"]) ?></h5>
+                            <div class="rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                            <div class="price">
+                                <span class="vnd"><?php echo $formattedAmount = number_format($row["price_product"], 0, ',', '.'); ?> đ</span>
+                            </div>
+                            <div class="detail">
+                                <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             <?php
-            endwhile
+            endwhile;
             ?>
         </div>
         <!-- binh luan -->
-        <hr class="myhr">
-        <h1 class="mytitle">Bình Luận</h1>
-        <div id="content">
+        <div class="product-section">
+            <span class="decorated-text">
+                <span class="decorator">★</span>
+                <b>BÌNH LUẬN</b>
+                <span class="decorator">★</span>
+            </span>
         </div>
-        <div>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content" data-dataid="<?php echo $data['idproduct'] ?>"></textarea>
-                <?php
-                if (!isset($_SESSION['username'])) {
-                    echo '<button type="button" class="btn btn-success" onclick="redirectToLogin()">Đăng nhập để bình luận</button>';
-                } else {
-                    echo '<button type="button" class="btn btn-success" name="btn_dang" id="btn_dang">Đăng</button>';
-                }
-                ?>
+        <div class="row">
+            <div class="col">
+                <div id="content">
+                </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content" data-dataid="<?php echo $data['idproduct'] ?>"></textarea>
+                    <div class="itemcenter">
+                        <?php
+                        if (!isset($_SESSION['username'])) {
+                            echo '<button type="button" class="btn btn-success btncm" onclick="redirectToLogin()">Đăng nhập để bình luận</button>';
+                        } else {
+                            echo '<button type="button" class="btn btn-success btncm" name="btn_dang" id="btn_dang">Đăng</button>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var btn = document.getElementById('btn_buy');

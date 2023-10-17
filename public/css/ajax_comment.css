@@ -1,0 +1,49 @@
+.comment {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.avt {
+    margin-bottom: 10px;
+}
+
+.avt img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.avt {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+
+.content h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.time h6 {
+    margin-left: 20px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: black;
+    align-items: center;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.content {
+    display: flex;
+}

@@ -18,13 +18,19 @@
                     <div class="comment">
                         <div class="avt">
                             <img src="/KhoaLuan/public/img/avt.jpg" alt="avt" style="width: 50px;">
-                            <h6><?php echo $row['email_user'] ?></h6>
-                            <h6><?php echo $formatted_time = date("j F Y", strtotime($row['time_up'])); ?></h6>
+                            <div class="time">
+                                <h6>Người đăng: <?php echo $row['email_user'] ?></h6>
+                                <h6><?php echo $formatted_time = date("j F Y", strtotime($row['time_up'])); ?></h6>
+                            </div>
                         </div>
                         <div class="content">
-                            <h1><?php echo $row['content_comment'] ?></h1>
+                            <div style="align-items: center; display: flex;">
+                                <span>Nội dung:</span>
+                            </div>
+                            <div>
+                                <h1><?php echo $row['content_comment'] ?></h1>
+                            </div>
                         </div>
-                        <hr>
                     </div>
                 <?php
                 endwhile

@@ -15,9 +15,9 @@ class Ajax extends controller
     {
         $trang = $_POST["trang"];
         settype($trang, "int");
-        $from = ($trang - 1) * 2;
+        $from = ($trang - 1) * 4;
         $md = $this->model("product_model");
-        $data = $md->GetList($from, 2);
+        $data = $md->GetList($from, 4);
         $this->view("ajax", [
             "page" => "Load_home",
             "data" => $data
@@ -72,7 +72,7 @@ class Ajax extends controller
             $brand,
             $imagePath,
         );
-        $md->AddDetail( $temp->GetIdLast(), $color, $size, $imagePath, $count);
+        $md->AddDetail($temp->GetIdLast(), $color, $size, $imagePath, $count);
     }
     function EditImage()
     {
@@ -213,14 +213,13 @@ class Ajax extends controller
         for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
             $output .= '
             <tr>
-            <td>' . $i + 1 . '</td>
-            <td>' . $_SESSION['cart'][$i][0] . '</td>
+            <td style="max-width: 150px"><h5 class="card-title">' . $_SESSION['cart'][$i][0] . '</h5></td>
             <td><img style="width: 150px;" src="' . $_SESSION['cart'][$i][3] . '" alt="anh"></td>
             <td>' . $_SESSION['cart'][$i][5] . '</td>
             <td>' . $_SESSION['cart'][$i][7] . '</td>
             <td>' . $_SESSION['cart'][$i][8] . '</td>
             <td>' . $_SESSION['cart'][$i][9] . '</td>
-            <td>' . $_SESSION['cart'][$i][2] . '</td>
+            <td>' . number_format($_SESSION['cart'][$i][2], 0, ',', '.') . '</td>
             <td>
             <i class="fa-solid fa-trash" onclick="Delete(this)" style="color: #d41616;" data-dataid = "' . $i . '"></i>
             </td>
@@ -231,17 +230,15 @@ class Ajax extends controller
         if (sizeof($_SESSION['cart']) == 0) {
             $output .= '
             <tr>
-            <td colspan="9">Chưa có sản phẩm trong giỏ hàng của bạn</td>
+            <td colspan="8">Chưa có sản phẩm trong giỏ hàng của bạn</td>
             </tr>
             ';
         }
         if ($_SESSION['tong'] > 0) {
             $output .= '
                 <tr>
-                <td>Tổng</td>
-                <td colspan="6"></td>
-                <td>' . $_SESSION['tong'] . '</td>
-                <td></td>
+                <td colspan="6">Tổng đơn hàng</td>
+                <td colspan="2">' . number_format($_SESSION['tong'], 0, ',', '.') . '</td>
                 </tr>
             ';
         }

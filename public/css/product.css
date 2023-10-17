@@ -1,0 +1,58 @@
+.row {
+    margin: 15px 0px;
+}
+
+.card-img-top {
+    width: auto;
+    height: 250px;
+    overflow: hidden;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.card-title {
+    margin-top: 3px;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c5858;
+}
+
+.rating {
+    color: gold;
+    font-size: 24px;
+}
+
+.vnd {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.detail {
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mycol {
+    margin-bottom: 20px;
+}
+.mysort{
+    display: flex;
+}
+.form-select{
+    margin: 0px 5px;
+}
+.form-control{
+    margin: 0px 5px;
+}
