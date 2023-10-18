@@ -6,22 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/KhoaLuan/public/css/cart.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped"> 
-                    <tr>
-                        <!-- <td>STT</td> -->
-                        <td>Tên</td>
-                        <td>Ảnh</td>
-                        <td>Thương Hiệu</td>
-                        <td>Số Lượng</td>
-                        <td>Size</td>
-                        <td>Màu</td>
-                        <td>Giá</td>
-                        <td>Xóa</td>
-                    </tr>
+                <table class="table">
+                    <thead class="tbhead">
+                        <tr>
+                            <!-- <td>STT</td> -->
+                            <td>Tên</td>
+                            <td>Ảnh</td>
+                            <td>Thương Hiệu</td>
+                            <td>Số Lượng</td>
+                            <td>Size</td>
+                            <td>Màu</td>
+                            <td>Giá</td>
+                            <td>Xóa</td>
+                        </tr>
+                    </thead>
                     <tbody id="cart_content">
 
                     </tbody>
@@ -33,8 +36,8 @@
         </div> -->
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <a href="/KhoaLuan/home" class="btn btn-primary">Tiếp Tục Mua</a>
-                <a href="/KhoaLuan/Pay" class="btn btn-primary" id="thanhtoan">Thanh Toán</a>
+                <a href="/KhoaLuan/home" class="btn btn-warning btn_acc">Tiếp Tục Mua</a>
+                <a href="/KhoaLuan/Pay" class="btn btn-warning btn_acc" id="thanhtoan">Thanh Toán</a>
             </div>
         </div>
     </div>

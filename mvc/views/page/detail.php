@@ -117,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 50px;">
             <div class="col">
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content" data-dataid="<?php echo $data['idproduct'] ?>"></textarea>

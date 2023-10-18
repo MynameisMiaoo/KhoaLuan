@@ -1,10 +1,10 @@
 <?php
 class order_model
 {
-    function Add($madh, $id, $ten, $dc, $sdt, $emai, $tong, $type, $status)
+    function Add($madh, $id, $ten, $dc, $sdt, $emai, $tong, $type, $status,$ship)
     {
         $new = new DB();
-        $sql = "INSERT INTO `tbl_order` (id_oder, id_user, name_user, address, phone, email, total, orderdate, type_pay, status) VALUES ('$madh', '$id', '$ten', '$dc', '$sdt', '$emai', '$tong', NOW(), '$type', '$status')";
+        $sql = "INSERT INTO `tbl_order` (id_oder, id_user, name_user, address, phone, email, total, orderdate, type_pay, status,id_ship) VALUES ('$madh', '$id', '$ten', '$dc', '$sdt', '$emai', '$tong', NOW(), '$type', '$status','$ship')";
         $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
         $new->giaiPhongBoNho($new->con, $kq);
     }

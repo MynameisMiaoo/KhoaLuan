@@ -10,10 +10,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" id="myNav">
         <div class="container-fluid">
-            <nav class="navbar navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="logo" width="30" height="24">
+            <nav class="navbar navbar-light bg-light" style="height: 50px; width: 50px; padding: 0px; margin: 0px;border-radius: 50%;">
+                <div class="container" style="height: 50px; width: 50px; padding: 0px; margin: 0px;border-radius: 50%;">
+                    <a class="navbar-brand" href="/KhoaLuan/home" style="height: 50px; width: 50px; padding: 0px; margin: 0px;border-radius: 50%;">
+                        <img src="/KhoaLuan/public/img/Minashop.png" alt="logo" style="height: 50px; width: 50px; padding: 0px; margin: 0px; border-radius: 50%;">
                     </a>
                 </div>
             </nav> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

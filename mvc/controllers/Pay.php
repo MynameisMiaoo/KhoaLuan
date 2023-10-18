@@ -41,11 +41,15 @@ class Pay extends controller
         if (!isset($_SESSION['email'])) {
             $_SESSION['email'] = "";
         }
+        if (!isset($_SESSION['ship'])) {
+            $_SESSION['ship'] = "";
+        }
         if (isset($_POST["name"])) {
             $_SESSION['ten'] = $_POST["name"];
             $_SESSION['sdt'] = $_POST["sdt"];
             $_SESSION['diachi'] = $_POST["diachi"];
             $_SESSION['email'] = $_POST["email"];
+            $_SESSION['ship'] = $_POST["ship"];
         }
         if (!isset($_SESSION['username'])) {
             $_SESSION['tt'] = "true";

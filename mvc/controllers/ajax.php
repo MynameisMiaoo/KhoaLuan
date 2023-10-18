@@ -219,7 +219,7 @@ class Ajax extends controller
             <td>' . $_SESSION['cart'][$i][7] . '</td>
             <td>' . $_SESSION['cart'][$i][8] . '</td>
             <td>' . $_SESSION['cart'][$i][9] . '</td>
-            <td>' . number_format($_SESSION['cart'][$i][2], 0, ',', '.') . '</td>
+            <td>' . number_format($_SESSION['cart'][$i][2], 0, ',', '.') . ' đ</td>
             <td>
             <i class="fa-solid fa-trash" onclick="Delete(this)" style="color: #d41616;" data-dataid = "' . $i . '"></i>
             </td>
@@ -237,8 +237,7 @@ class Ajax extends controller
         if ($_SESSION['tong'] > 0) {
             $output .= '
                 <tr>
-                <td colspan="6">Tổng đơn hàng</td>
-                <td colspan="2">' . number_format($_SESSION['tong'], 0, ',', '.') . '</td>
+                <td colspan="8">Tổng đơn hàng: ' . number_format($_SESSION['tong'], 0, ',', '.') . ' đ</td>
                 </tr>
             ';
         }

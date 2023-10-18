@@ -18,33 +18,34 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div>
+                        <div style="padding: 10px; border-radius: 10px;">
                             <input type="radio" name="payment-option" value="cod">
                             <img src="/KhoaLuan/public/img/cod.jpg" alt="Thanh toan cod">
-                            <label for="">COD</label>
+                            <label for="">Thanh toán khi nhận hàng (COD)</label>
                         </div>
-                        <div>
+                        <div style="padding: 10px; border-radius: 10px;">
                             <input type="radio" name="payment-option" value="momo">
                             <img src="/KhoaLuan/public/img/momo.png" alt="thanh toan momo">
-                            <label for="">MOMO</label>
+                            <label for="">Thanh toán bằng MOMO</label>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay Lại</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">HỦY</button>
                         <form action="/KhoaLuan/Pay" method="post" id="myForm">
                             <input name="selectedValue" id="selectedValue" type="hidden" value="">
                             <input type="hidden" value="" name="name" id="idname">
                             <input type="hidden" value="" name="sdt" id="idsdt">
                             <input type="hidden" value="" name="email" id="idemail">
                             <input type="hidden" value="" name="diachi" id="iddiachi">
-                            <button type="button" class="btn btn-primary" name="payUrl" id="btn_xn">Xác Nhận</button>
+                            <input type="hidden" value="" name="ship" id="idship">
+                            <button type="button" class="btn btn-warning" name="payUrl" id="btn_xn">ĐẶT HÀNG</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-7">
+            <div class="col-6">
                 <div class="box">
                     <div class="divlb">
                         <h4>Thông Tin Nhận Hàng</h4>
@@ -67,64 +68,56 @@
                     </div>
                 </div>
                 <div class="box">
-                    <span class="form-label" style="width: 100%;">Hình thức giao hàng</span>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <p class="form-check-label" for="flexRadioDefault1">
-                            Nhanh
-                        </p>
+                    <div class="divlb">
+                        <h4>Hình Thức Giao Hàng</h4>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <p class="form-check-label" for="flexRadioDefault2">
-                            Hỏa tốc
+                    <div class="form-check divship" onclick="handleDivClick(this)" style="padding: 20px 10px; border-radius: 7px;">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="margin-left: 5px;" value="1">
+                        <p class="form-check-label" for="flexRadioDefault1">
+                            Nhanh (Nhận hàng trong 3-4 ngày)
                         </p>
+                        <span class="float-right">30.000đ</span>
+                    </div>
+                    <div class="form-check divship" style="padding: 20px 10px; border-radius: 7px;" onclick="handleDivClick(this)">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="margin-left: 5px;" value="2">
+                        <p class="form-check-label" for="flexRadioDefault1">
+                            Hỏa tốc (Nhận hàng trong 3-4 ngày)
+                        </p>
+                        <span class="float-right">60.000đ</span>
                     </div>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-6">
                 <div class="box">
                     <div class="divlb">
                         <h4>Thông Tin Đơn Hàng</h4>
                     </div>
-                    <table class="table table-success table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">STT</th>
-                                <th scope="col">Tên Sản Phẩm</th>
-                                <th scope="col">Số Lượng</th>
-                                <th scope="col">Tạm Tính</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) :
-                            ?>
-                                <tr>
-                                    <th scope="row"><?php echo $i + 1 ?></th>
-                                    <td><?php echo $_SESSION['cart'][$i][0] ?></td>
-                                    <td><?php echo $_SESSION['cart'][$i][7] ?></td>
-                                    <td><?php echo $_SESSION['cart'][$i][2] * $_SESSION['cart'][$i][7] ?></td>
-                                </tr>
-                            <?php
-                            endfor; ?>
-                            <tr>
-                                <th scope="row">Tổng</th>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <h5><?php echo $_SESSION['tong'] ?></h5>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <?php
+                    for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) :
+                    ?>
+                        <div class="row rowview">
+                            <div class="col-6 colimg" style="padding: 10px;">
+                                <img src="<?php echo $_SESSION['cart'][$i][3] ?>" alt="anh" style="height: 100px; width: 180px;">
+                            </div>
+                            <div class="col-6 colinfor">
+                                <span class="item-name" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo strtoupper($_SESSION['cart'][$i][0]) ?></span>
+                                <span class="item-quantity" style="opacity: 0.85;">Số Lượng: <?php echo $_SESSION['cart'][$i][7] ?></span>
+                                <span class="item-total" style="opacity: 0.85;">Tạm tính: <?php echo number_format($_SESSION['cart'][$i][2] * $_SESSION['cart'][$i][7], 0, ',', '.'); ?></span>
+                            </div>
+                        </div>
+                    <?php
+                    endfor; ?>
+                    <div style="display: flex; padding: 10px;">
+                        <span style="width: 100%; opacity: 0.85;">Tổng (Chưa bao gồm phí ship):</span>
+                        <h5 style="margin-left: auto; padding-right: 25px;"><?php echo number_format($_SESSION['tong'], 0, ',', '.'); ?>đ</h5>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 50px;">
             <div class="col-12 d-flex justify-content-center">
-                <button class="btn btn-success" onclick="goback()" role="button">Giỏ Hàng</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="btn_xn">
+                <button class="btn btn-warning mybutton" onclick="goback()" role="button">Quay Lại Giỏ Hàng</button>
+                <button type="button" class="btn btn-warning mybutton" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Tiếp tục thanh toán
                 </button>
             </div>
@@ -132,22 +125,22 @@
 
     </div>
     <script>
-        // $(document).ready(function() {
-        //     $("#btn_xn").click(function() {
-        //         var name = $("#name").val().trim();
-        //         var sdt = $("#sdt").val().trim();
-        //         var email = $("#email").val().trim();
-        //         var diachi = $("#diachi").val().trim();
+        function handleDivClick(div) {
+            var allDivs = document.querySelectorAll('.divship');
+            var allInputs = document.querySelectorAll('.divship input[type="radio"]');
 
-        //         if (name !== "" && sdt !== "" && email !== "" && diachi !== "") {
-        //             // Đã nhập đủ thông tin, mở modal
-        //             $("#staticBackdrop").modal("show");
-        //         } else {
-        //             // Hiển thị thông báo yêu cầu nhập đủ thông tin
-        //             alert("Vui lòng nhập đầy đủ thông tin trước khi thanh toán.");
-        //         }
-        //     });
-        // });
+            for (var i = 0; i < allDivs.length; i++) {
+                allDivs[i].classList.remove('selected');
+                allInputs[i].checked = false;
+            }
+
+            div.classList.add('selected');
+            var input = div.querySelector('input[type="radio"]');
+            input.checked = true;
+            // var number = parseInt(input.value)
+            // const formattedNumber = number.toLocaleString("vi-VN");
+            // $("#cast").text(formattedNumber);
+        }
 
         function goback() {
             window.history.back();
@@ -165,6 +158,9 @@
         const namef = document.getElementById('name');
         const sdtf = document.getElementById('sdt');
         const diachif = document.getElementById('diachi');
+        const shipf = document.getElementById('flexRadioDefault1');
+        const ship = document.getElementById('idship');
+
         btn_xn.addEventListener('click', () => {
             const selectedRadio = document.querySelector('.modal-body input[type="radio"]:checked');
             if (selectedRadio) {
@@ -173,6 +169,7 @@
                 email.value = emailf.value;
                 diachi.value = diachif.value;
                 sdt.value = sdtf.value;
+                ship.value = shipf.value;
                 document.getElementById('myForm').submit();
             }
         });

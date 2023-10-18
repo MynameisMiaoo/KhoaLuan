@@ -34,7 +34,7 @@ th {
     text-align: center;
 }
 
-button {
+.mybutton {
     margin: 10px;
 }
 
@@ -76,4 +76,70 @@ button {
     outline: none;
     border-color: #80bdff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.divship {
+    margin-top: 8px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    display: flex;
+}
+
+.divship p {
+    margin: 0px 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.divship span.float-right {
+    float: right;
+}
+
+.selected {
+    background: rgb(224, 224, 217);
+}
+
+.row {
+    padding-bottom: 20px;
+}
+
+.colinfor {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+}
+.colimg{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* Thêm các thuộc tính CSS khác tùy theo yêu cầu của bạn */
+}
+
+.item-quantity {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* Thêm các thuộc tính CSS khác tùy theo yêu cầu của bạn */
+}
+
+.item-total {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    /* Thêm các thuộc tính CSS khác tùy theo yêu cầu của bạn */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.rowview{
+    padding: 10px;
+    background-color: #ced4da;
+    border-radius: 10px;
+    margin: 10px 8px;
+}
+span{
+    font-family: Arial, Helvetica, sans-serif;
 }

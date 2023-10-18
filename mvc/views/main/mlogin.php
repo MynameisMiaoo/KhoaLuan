@@ -34,7 +34,7 @@
                         <label class="form-check-label" for="exampleCheck1" name="repass">Remember email</label>
                     </div>
                     <div class="btnn">
-                        <a type="btn" class="btn btn-dark" href="./phome">Back</a>
+                        <a type="btn" class="btn btn-dark" href="./home">Back</a>
                         <button type="submit" class="btn btn-dark" style="margin-left: 10px;">Sign In</button>
                     </div>
                 </form>
@@ -56,7 +56,7 @@
                         <input type="password" class="form-control" name="re_repass" placeholder="Input your password" id="exampleInputPassword1" required>
                     </div>
                     <div class="btnn">
-                        <a type="btn" class="btn btn-dark" href="./phome">Back</a>
+                        <a type="btn" class="btn btn-dark" href="./home">Back</a>
                         <button type="submit" class="btn btn-dark" style="margin-left: 10px;">Register</button>
                     </div>
                 </form>

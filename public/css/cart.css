@@ -1,8 +1,14 @@
 table {
+    margin-top: 50px;
     border-collapse: collapse;
     width: 100%;
 }
-
+.tbhead{
+    background-color: #a8e6e9;
+}
+#cart_content{
+    background-color: #fff1ed;
+}
 table,
 th,
 td {
@@ -49,4 +55,7 @@ span {
     font-size: 20px;
     font-weight: bold;
     color: #5c5858;
+}
+.btn_acc{
+    margin: 10px;
 }
