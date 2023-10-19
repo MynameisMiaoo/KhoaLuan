@@ -17,7 +17,7 @@
             <div class="alert alert-success" role="alert" id="myAlert" style="display: none;">
             </div>
         </div>
-        <div class="row" style="position: relative;">
+        <div class="row box" style="position: relative;">
             <div class="tbl" id="content">
             </div>
             <!-- Xóa  -->
@@ -29,10 +29,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h5>Bạn có chắc muốn xóa?</h5>
+                            <h5>Bạn có chắc muốn thay đổi trạng thái sản phẩm này?</h5>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
                             <button type="button" class="btn btn-primary">Xác Nhận</button>
                         </div>
                     </div>

@@ -5,8 +5,9 @@ table {
 
 table,
 th,
+tr,
 td {
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 th,
@@ -52,18 +53,40 @@ textarea {
 }
 
 .col {
+    opacity: 0.65;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
-    background-color: yellow;
+    background-color: #decbe2;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
 }
 
 .highlight {
+    opacity: 1;
     background-color: cyan;
 }
-.row{
+
+.row {
     padding-top: 20px;
+}
+
+.box {
+    margin-top: 50px;
+    padding: 10px 30px;
+    border: 2px black solid;
+    border-radius: 10px;
+    background-color: #f9f2f2;
+    min-height: 30vh;
+}
+
+#content {
+    padding: 20px;
+    margin: 20px 0px;
+}
+
+thead {
+    background-color: #efb4b4;
 }

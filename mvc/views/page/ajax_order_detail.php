@@ -8,8 +8,10 @@
 </head>
 
 <body>
-    <span>Mã đơn hàng: </span>
-    <span id="madh"><?php echo $data['ma'] ?></span>
+    <div class="info">
+        <span>Mã đơn hàng: </span>
+        <b id="madh"><?php echo $data['ma'] ?></b>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -35,13 +37,15 @@
             <?php endfor; ?>
         </tbody>
     </table>
-    <?php if ($data['check'] == "1") : ?>
-        <button type="button" class="btn btn-success" id="btn_xk">Xuất Kho</button>
-    <?php endif; ?>
-    <?php if ($data['check'] == "2") : ?>
-        <button type="button" class="btn btn-success" id="btn_nk">Hủy</button>
-        <button type="button" class="btn btn-success" id="btn_xn">Đã Giao Hàng</button>
-    <?php endif; ?>
+    <div class="option">
+        <?php if ($data['check'] == "1") : ?>
+            <button type="button" class="btn btn-success btnoption" id="btn_xk">Xuất Kho</button>
+        <?php endif; ?>
+        <?php if ($data['check'] == "2") : ?>
+            <button type="button" class="btn btn-danger btnoption btncancel" id="btn_nk">Hủy</button>
+            <button type="button" class="btn btn-success btnoption" id="btn_xn">Đã Giao Hàng</button>
+        <?php endif; ?>
+    </div>
     <script>
         $("#btn_xk").click(function() {
             //sua trang thai thanh 2 va tru coun trong kho 

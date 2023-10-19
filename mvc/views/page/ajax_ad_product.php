@@ -35,7 +35,7 @@
                     <tr>
                         <th scope="row"><?php echo $row["id_product"]; ?></th>
                         <td class="mytdname" data-dataid="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"> <?php echo $row["name_product"]; ?></td>
-                        <td class="mytdimg" data-dataimg="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing2(this)"><img id="myimg" style="width: 150px;" src="/KhoaLuan/<?php echo $row["img_product"]; ?>" alt="anh san pham"></td>
+                        <td class="mytdimg" data-dataimg="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing2(this)"><img id="myimg" style="height: 100px;" src="/KhoaLuan/<?php echo $row["img_product"]; ?>" alt="anh san pham"></td>
                         <td class="mytddes" data-datades="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["des_product"]; ?></td>
                         <td class="mytdprice" data-dataprice="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["price_product"]; ?></td>
                         <td class="mytdcate" data-datacate="<?php echo $row["id_product"]; ?>" ondblclick="enableEditing(this)"><?php echo $row["cate_product"]; ?></td>

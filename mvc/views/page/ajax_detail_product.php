@@ -16,10 +16,10 @@
                         <th scope="col">Màu</th>
                         <th scope="col">Ảnh</th>
                         <th scope="col">Size</th>
-                        <th scope="col">Count</th>
+                        <th scope="col">Số Lượng</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbshow">
                     <?php while ($row = mysqli_fetch_assoc($data['data'])) : ?>
                         <tr>
                             <td><?php echo $row['color'] ?></td>
@@ -46,13 +46,13 @@
                     <?php endwhile; ?>
                 </select>
                 <input type="number" class="form-control" placeholder="Số lượng" aria-label="Server" min="1" id="count" value="" autocomplete="off">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="margin-top: 10px;">
                     <input type="file" class="form-control" id="inputGroupFile02" onchange="previewImage(event)">
                 </div>
             </div>
-            <div>
-                <img src="" alt="upload" style="display: none;" id="myimg">
-                <button class="btn-info" id="btn_add">Thêm</button>
+            <div class="divview">
+                <img src="" alt="upload" style="display: none; height: 150px; width: auto;" id="myimg">
+                <button type="button" class="btn btn-info" id="btn_add">Thêm</button>
             </div>
         </div>
     </div>
@@ -91,11 +91,11 @@
                     contentType: false,
                     processData: false,
                     success: function(data) {
-                        alert("Thành công");
+                        location.reload();
+                        alert("Thành Công")
                     }
                 });
-            }
-            else{
+            } else {
                 alert("Vui lòng nhập đầy đủ thông tin");
             }
         });

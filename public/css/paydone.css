@@ -3,5 +3,18 @@
 }
 
 .madh:hover {
+    background-color: #ffafa1;
+}
+.madh{
+    padding: 20px 10px;
     background-color: #e1e1e2;
+    /* background-color: #ffafa1; */
+    border-radius: 10px;
+    margin: 10px 0px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.madh.selected {
+    background-color: #ffafa1;
+    opacity: 1;
 }

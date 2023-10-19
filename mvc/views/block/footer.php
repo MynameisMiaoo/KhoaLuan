@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-3 col-sm-12">
                 <ul>
-                    <li><label>LIÊN KẾT</label></li>
+                    <li><b>LIÊN KẾT</b></li>
                     <li class="myli"><a href="/KhoaLuan/category/Adidas" class="link">ADIDAS</a></li>
                     <li class="myli"><a href="/KhoaLuan/category/Nike" class="link">NIKE</a>
                     </li>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-3 col-sm-12">
                 <ul>
-                    <li><label>KẾT NỐI VỚI CHÚNG TÔI</label></li>
+                    <li><b>KẾT NỐI VỚI CHÚNG TÔI</b></li>
                     <li>
                         <span for="">sanshsnsg2@gmail.com</span>
                     </li>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-6 col-sm-12">
                 <ul>
-                    <li><label>THEO DÕI CHÚNG TÔI</label></li>
+                    <li><b>THEO DÕI CHÚNG TÔI</b></li>
                     <li>
                         <div class="follow" id="input">
                             <div class="input-group mb-3">

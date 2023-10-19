@@ -214,7 +214,7 @@ class Ajax extends controller
             $output .= '
             <tr>
             <td style="max-width: 150px"><h5 class="card-title">' . $_SESSION['cart'][$i][0] . '</h5></td>
-            <td><img style="width: 150px;" src="' . $_SESSION['cart'][$i][3] . '" alt="anh"></td>
+            <td><img style="height: 120px; width: auto;" src="' . $_SESSION['cart'][$i][3] . '" alt="anh"></td>
             <td>' . $_SESSION['cart'][$i][5] . '</td>
             <td>' . $_SESSION['cart'][$i][7] . '</td>
             <td>' . $_SESSION['cart'][$i][8] . '</td>

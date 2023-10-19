@@ -75,7 +75,7 @@
                                 <div class="detail">
                                     <a href="/KhoaLuan/category/<?php echo $row["brand"] ?>_detail/<?php echo $row["id_product"] ?>" class="btn btn-primary">Chi Tiết</a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 <?php
@@ -84,7 +84,7 @@
             </div>
             <div class="row" style="margin-bottom: 50px;">
                 <div class="col-12 d-flex justify-content-center">
-                    <button type="button" class="btn btn-secondary" id="more">Xem thêm</button>
+                    <button type="button" class="btn btn-warning" id="more">Xem thêm</button>
                 </div>
             </div>
         </div>

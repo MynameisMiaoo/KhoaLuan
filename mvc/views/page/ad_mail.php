@@ -10,9 +10,9 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 col-sm-12">
+            <div class="col-6 col-sm-12 content">
                 <div class="head">
-                    <h4>MinAShop</h4>
+                    <h4>MINASHOP</h4>
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Tiêu đề *</span>
@@ -49,7 +49,7 @@
             }
             document.body.classList.add("disable-interaction");
             btnSend.classList.add("loading");
-            btnSend.innerHTML = "VUI LÒNG ĐỢI ĐẾN KHI QUÁ TRÌNH GỬI HOÀN TẤT";
+            btnSend.innerHTML = "Không làm mới trang cho đến khi hoàn tất!";
             formData.append('image', file);
             formData.append('title', $("#input_title").val())
             formData.append('content', $("#input_content").val())

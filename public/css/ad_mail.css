@@ -52,20 +52,22 @@ table {
 
 .send button {
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
-.row{
-    margin-top: 30px;
-}
-.head{
+
+.head {
     text-align: center;
     margin-bottom: 60px;
 }
-.row{
+
+.row {
+    margin-top: 80px;
     border: 2px solid;
     padding: 10px;
-    background-color: aquamarine;
+    background-color: #f8f7f3;
+    border-radius: 10px;
 }
-body{
-    background-color: blue;
+
+.content {
+    padding: 30px 50px;
 }

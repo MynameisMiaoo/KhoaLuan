@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/KhoaLuan/public/css/pay.css" rel="stylesheet">
-    <title>Pay</title>
+    <title>Thanh Toán</title>
 </head>
 
 <body>
@@ -97,7 +97,7 @@
                     ?>
                         <div class="row rowview">
                             <div class="col-6 colimg" style="padding: 10px;">
-                                <img src="<?php echo $_SESSION['cart'][$i][3] ?>" alt="anh" style="height: 100px; width: 180px;">
+                                <img src="<?php echo $_SESSION['cart'][$i][3] ?>" alt="anh" style="height: 100px;">
                             </div>
                             <div class="col-6 colinfor">
                                 <span class="item-name" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo strtoupper($_SESSION['cart'][$i][0]) ?></span>
@@ -137,9 +137,7 @@
             div.classList.add('selected');
             var input = div.querySelector('input[type="radio"]');
             input.checked = true;
-            // var number = parseInt(input.value)
-            // const formattedNumber = number.toLocaleString("vi-VN");
-            // $("#cast").text(formattedNumber);
+            $("#idship").val(input.value);
         }
 
         function goback() {
@@ -158,7 +156,6 @@
         const namef = document.getElementById('name');
         const sdtf = document.getElementById('sdt');
         const diachif = document.getElementById('diachi');
-        const shipf = document.getElementById('flexRadioDefault1');
         const ship = document.getElementById('idship');
 
         btn_xn.addEventListener('click', () => {
@@ -169,7 +166,6 @@
                 email.value = emailf.value;
                 diachi.value = diachif.value;
                 sdt.value = sdtf.value;
-                ship.value = shipf.value;
                 document.getElementById('myForm').submit();
             }
         });

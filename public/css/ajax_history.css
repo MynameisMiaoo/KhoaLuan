@@ -1,0 +1,13 @@
+.history_info{
+    border: 2px solid;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #eee5e6;
+}
+.history_btn{
+    margin-top: 40px;
+}
+b{
+    opacity: 0.8;
+}

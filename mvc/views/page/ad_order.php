@@ -9,13 +9,13 @@
 
 <body>
     <div class="container">
-        <div class="row" style="padding-top: 10px;">
+        <div class="row" style="padding-top: 20px;">
             <div class="col highlight" onclick="highlight(this)" data-dataid="1">Đơn hàng mới</div>
             <div class="col " onclick="highlight(this)" data-dataid="2">Đang giao hàng</div>
             <div class="col " onclick="highlight(this)" data-dataid="3">Đã Giao Hàng</div>
             <div class="col " onclick="highlight(this)" data-dataid="4">Đã Hủy</div>
         </div>
-        <div class="row" style="padding-top: 10px;">
+        <div class="row" style="margin-top: 50px; padding: 10px 30px; border: 2px black solid; border-radius: 10px; background-color: #f9f2f2; min-height: 30vh;">
             <div class="col-12" id="content2">
             </div>
         </div>

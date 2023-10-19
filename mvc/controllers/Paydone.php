@@ -19,7 +19,7 @@ class PayDone extends controller
             }
             if ($result['message'] == 'Successful.') {
                 $id = $user->GetId($_SESSION['username']);
-                $md->Add($result["orderId"], $id, $_SESSION['ten'], $_SESSION['diachi'], $_SESSION['sdt'], $_SESSION['email'], $_SESSION['tong']+$_SESSION['ship']*20000, $_SESSION['type'], 1,$_SESSION['ship']);
+                $md->Add($result["orderId"], $id, $_SESSION['ten'], $_SESSION['diachi'], $_SESSION['sdt'], $_SESSION['email'], $_SESSION['tong'] + $_SESSION['ship'] * 30000, $_SESSION['type'], 1, $_SESSION['ship']);
                 // $md2->Add($result["orderId"], $_SESSION['cart']);
                 $arr = array();
                 for ($j = 0; $j < sizeof($_SESSION['cart']); $j++) {
@@ -44,7 +44,7 @@ class PayDone extends controller
             if (isset($_SESSION['type']) && $_SESSION['type'] == "COD") {
                 $id = $user->GetId($_SESSION['username']);
                 $ma = time() . "";
-                $md->Add($ma, $id, $_SESSION['ten'], $_SESSION['diachi'], $_SESSION['sdt'], $_SESSION['email'], $_SESSION['tong']+$_SESSION['ship']*30000, $_SESSION['type'], 1,$_SESSION['ship']);
+                $md->Add($ma, $id, $_SESSION['ten'], $_SESSION['diachi'], $_SESSION['sdt'], $_SESSION['email'], $_SESSION['tong'] + $_SESSION['ship'] * 30000, $_SESSION['type'], 1, $_SESSION['ship']);
                 $arr = array();
                 for ($j = 0; $j < sizeof($_SESSION['cart']); $j++) {
                     $sp = array();

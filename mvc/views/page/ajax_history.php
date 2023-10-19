@@ -9,57 +9,75 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-6">
-                <div>
-                    <span for="product1">Mã đơn hàng: </span>
-                    <span id="product1"> <?php echo $data['info']['id_oder'] ?>
-                    </span>
-                </div>
-                <div>
-                    <span for="product2">Ngày đặt: </span>
-                    <span id="product2"> <?php echo $data['info']['orderdate'] ?>
-                    </span>
-                </div>
-                <div>
-                    <span for="product3">Hình Thức thanh toán: </span>
-                    <span id="product"> <?php echo $data['info']['type_pay'] ?>
-                    </span>
-                </div>
-                <div>
-                    <span for="product4">Trạng Thái: </span>
-                    <span id="product4"> <?php echo $data['info']['status'] ?>
-                    </span>
+        <div class="row history_info">
+            <div class="col-12" style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: center;">
+                    <!-- <h4 id="product4"> <?php echo $data['info']['status'] ?>
+                    </h4> -->
+                    <h4> THÔNG TIN ĐƠN HÀNG
+                    </h4>
                 </div>
             </div>
             <div class="col-6">
                 <div>
-                    <span for="product11">Tên: </span>
+                    <b for="product1">Mã đơn hàng: </b>
+                    <span id="product1"> <?php echo $data['info']['id_oder'] ?>
+                    </span>
+                </div>
+                <div>
+                    <b for="product2">Ngày đặt: </b>
+                    <span id="product2"> <?php echo $data['info']['orderdate'] ?>
+                    </span>
+                </div>
+                <div>
+                    <b for="product3">Hình Thức thanh toán: </b>
+                    <span id="product"> <?php echo $data['info']['type_pay'] ?>
+                    </span>
+                </div>
+                <div>
+                    <b for="product3">Hình Thức Vận Chuyển: </b>
+                    <span id="product"> <?php echo $data['info']['ship'] ?>
+                    </span>
+                </div>
+                <!-- <div>
+                    <span for="product4">Trạng Thái: </span>
+                    <span id="product4"> <?php echo $data['info']['status'] ?>
+                    </span>
+                </div> -->
+            </div>
+            <div class="col-6">
+                <div>
+                    <b for="product11">Tên: </b>
                     <span id="product11"> <?php echo $data['info']['name_user'] ?>
                     </span>
                 </div>
                 <div>
-                    <span for="product22">Email: </span>
+                    <b for="product22">Email: </b>
                     <span id="product22"> <?php echo $data['info']['email'] ?>
                     </span>
                 </div>
                 <div>
-                    <span for="product33">Số điện thoại: </span>
+                    <b for="product33">Số điện thoại: </b>
                     <span id="product33"> <?php echo $data['info']['phone'] ?>
                     </span>
                 </div>
                 <div>
-                    <span for="product44">Địa chỉ: </span>
+                    <b for="product44">Địa chỉ: </b>
                     <span id="product44"> <?php echo $data['info']['address'] ?>
                     </span>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row history_info">
+            <div class="col-12" style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: center;">
+                    <h4>CHI TIẾT ĐƠN HÀNG
+                    </h4>
+                </div>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">STT</th>
                         <th scope="col">Tên Sản Phẩm</th>
                         <th scope="col">Màu</th>
                         <th scope="col">Size</th>
@@ -71,29 +89,30 @@
                 <tbody>
                     <?php for ($i = 0; $i < sizeof($data['data']); $i++) : ?>
                         <tr>
-                            <th scope="row"><?php echo $i + 1 ?></th>
                             <td> <?php echo $data['data'][$i]['name_product'] ?></td>
                             <td> <?php echo $data['data'][$i]['color'] ?></td>
                             <td> <?php echo $data['data'][$i]['size'] ?></td>
-                            <td> <?php echo $data['data'][$i]['price_product'] ?></td>
+                            <td> <?php echo number_format($data['data'][$i]['price_product'], 0, ',', '.') ?></td>
                             <td> <?php echo $data['data'][$i]['count_product'] ?></td>
-                            <td> <?php echo $data['data'][$i]['count_product'] * $data['data'][$i]['price_product'] ?></td>
+                            <td> <?php echo number_format($data['data'][$i]['count_product'] * $data['data'][$i]['price_product'], 0, ',', '.') ?></td>
                         </tr>
                     <?php
                     endfor;
                     ?>
-                    <th scope="row">Tổng</th>
-                    <td colspan="5"></td>
+                    <th scope="row">Tổng (Phí giao hàng: <?php echo  number_format($data['info']['id_ship'] * 30000, 0, ',', '.') ?>đ)</th>
+                    <td colspan="4"></td>
                     <td colspan="1">
-                        <h6><?php echo $data['info']['total'] ?></h6>
+                        <b>
+                            <?php echo number_format($data['info']['total'], 0, ',', '.') ?> đ
+                        </b>
                     </td>
                 </tbody>
             </table>
         </div>
-        <div class="row">
+        <div class="row history_btn">
             <div class="col d-flex align-items-center justify-content-center">
                 <?php if ($data['info']['id_status'] == 1) : ?>
-                    <a class="btn btn-danger" type="button" role="button" style="margin: 5px;" id="btn_huy" data-dataid="<?php echo $data['info']['id_oder']?>">Hủy Đặt Hàng</a>
+                    <a class="btn btn-danger" type="button" role="button" style="margin: 5px;" id="btn_huy" data-dataid="<?php echo $data['info']['id_oder'] ?>">Hủy Đặt Hàng</a>
                 <?php endif; ?>
                 <a class="btn btn-primary" href="/KhoaLuan/home" role="button" style="margin: 5px;">Tiếp Tục Mua Hàng</a>
             </div>
@@ -110,7 +129,7 @@
                         id: $("#btn_huy").data("dataid")
                     },
                     success: function(data) {
-                        alert("Đã Hủy Đơn Hàng");
+                        location.reload();
                     }
                 });
             }

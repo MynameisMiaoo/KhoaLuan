@@ -46,5 +46,3 @@ class login extends controller
         }
     }
 }
-//js neu user k nhap hoacj nhap sai  thi hien thong bao 
-//xai ajax kiem tra xem user name da ton tai chua

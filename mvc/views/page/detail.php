@@ -14,7 +14,7 @@
         <?php while ($row = mysqli_fetch_assoc($data["data"])) : ?>
             <div class="row">
                 <div class="col col-lg-7 col-sm-12 divimg">
-                    <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="rounded float-end" alt="anh san pham" id="img_detail">
+                    <img src="/KhoaLuan/<?php echo $row["img_product"] ?>" class="rounded float-end" alt="anh san pham" id="img_detail" style="height: 222px; width: auto; ">
                 </div>
                 <div class="col col-lg-5 col-sm-12">
                     <div class="rating">

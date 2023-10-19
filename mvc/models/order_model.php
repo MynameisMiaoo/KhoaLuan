@@ -11,13 +11,17 @@ class order_model
     function GetList($id)
     {
         $new = new DB();
-        $sql = "Select * from tbl_order where id_user = '$id'";
+        $sql = "Select * from tbl_order
+        join tbl_status on tbl_order.status = tbl_status.id_status
+        where id_user = '$id'
+        ORDER BY orderdate DESC";
         $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
         $kqkq = array();
         while ($row = mysqli_fetch_assoc($kq)) {
             $result = array();
             array_push($result, $row['id_oder']);
             array_push($result, $row['orderdate']);
+            array_push($result, $row['status']);
             array_push($kqkq, $result);
         }
         $new->giaiPhongBoNho($new->con, $kq);
@@ -28,6 +32,7 @@ class order_model
         $new = new DB();
         $sql = "Select * from tbl_order 
         join tbl_status on tbl_order.status = tbl_status.id_status
+        join tbl_ship on tbl_order.id_ship = tbl_ship.id_ship
         where id_oder = '$id'";
         $result = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
         $row = mysqli_fetch_assoc($result);

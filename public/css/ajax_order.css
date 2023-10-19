@@ -1,9 +1,26 @@
-td{
+td {
     text-align: center;
 }
-th{
+
+th {
     text-align: center;
 }
-tr{
+
+tr {
     cursor: pointer;
+}
+
+.table,
+td,
+tr,
+th {
+    border: 2px black solid;
+}
+
+thead {
+    background-color: #efb4b4;
+}
+table{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

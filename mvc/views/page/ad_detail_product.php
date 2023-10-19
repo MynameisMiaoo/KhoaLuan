@@ -11,15 +11,15 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-12">
                 <div class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Nhập Tên sản phẩm" aria-label="Search" id="input_search">
                     <button class="btn btn-outline-success" type="button" id="btn_search">Tìm Kiếm</button>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col" id="content">
+        <div class="row box">
+            <div class="col-12" id="content">
             </div>
         </div>
     </div>

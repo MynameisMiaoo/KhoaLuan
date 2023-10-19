@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e7d3f9;">
         <div class="container">
             <a class="navbar-brand" href="/KhoaLuan/admin">Admin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +33,9 @@
                     </li>
                 </ul>
             </div>
+            <a href="./login" style="list-style: none; text-decoration: none;">
+                <b style=" cursor: pointer; color: black;">ĐĂNG XUẤT</b>
+            </a>
         </div>
     </nav>
 </body>

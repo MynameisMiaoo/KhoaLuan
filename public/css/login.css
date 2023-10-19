@@ -1,32 +1,53 @@
-
-.col-form{
-    border-radius: 2%;
+.col-form {
+    border-radius: 20px;
     border-style: initial;
-    background-image: linear-gradient(rgb(241, 234, 234),rgb(101, 99, 99));
+    background-color: #fef9f6;
     padding: 20px;
 }
-.row-form{
+
+.row-form {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.container-fluid{
+
+.container-fluid {
     height: 100vh;
 }
-.btnn{
+
+.btnn {
     display: flex;
     justify-content: center;
 }
-body{
-    background-image: url(../img/login.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.choose{
-    display: flex;
-    justify-content: center;
-}
-#f2{
+#f2 {
     display: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-button {
+    opacity: 0.55;
+    width: 120px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #f6f0eb;
+    color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.custom-button.clicked {
+    opacity: 1;
+    background-color:#f2a6c4;
+    /* Màu mới khi nút được chọn */
 }

@@ -30,7 +30,7 @@ class product_model
         $new = new DB();
         $sql = "SELECT * FROM tbl_products ORDER BY id_product DESC LIMIT 1";
         $kq = $new->chayTruyVanTraVeDL($new->con, $sql);
-        while($row = mysqli_fetch_assoc($kq)){
+        while ($row = mysqli_fetch_assoc($kq)) {
             $id = $row['id_product'];
         }
         return $id;
@@ -94,11 +94,11 @@ class product_model
     {
         $new = new DB();
         $query = "SELECT * FROM tbl_products 
-        JOIN tbl_brand ON tbl_products.brand_product = tbl_brand.id_brand
-        JOIN tbl_category ON tbl_products.cate_id = tbl_category.cate_id
-        JOIN tbl_status_products ON tbl_products.id_status_products = tbl_status_products.id_status
-        WHERE status = 'Hiển thị'
-        AND brand LIKE '%" . $a . "%';";
+    JOIN tbl_brand ON tbl_products.brand_product = tbl_brand.id_brand
+    JOIN tbl_category ON tbl_products.cate_id = tbl_category.cate_id
+    JOIN tbl_status_products ON tbl_products.id_status_products = tbl_status_products.id_status
+    WHERE status = 'Hiển thị'
+    AND (brand LIKE '%" . $a . "%' OR tbl_products.name_product LIKE '%" . $a . "%' OR des_product LIKE '%" . $a . "%');";
         $kq = $new->chayTruyVanTraVeDL($new->con, $query);
         return $kq;
     }

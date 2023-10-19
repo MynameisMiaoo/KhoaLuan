@@ -10,10 +10,11 @@ li {
     margin: 10px 10px;
 }
 
-label {
+b {
     font-family: Arial, sans-serif;
     font-size: 22px;
     color: #453d35;
+    opacity: 0.75;
 }
 
 .link {

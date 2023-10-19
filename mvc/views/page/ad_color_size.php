@@ -5,12 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <style>
+        .box {
+            padding: 20px;
+            margin: 30px 10px;
+            border-radius: 10px;
+            border: 2px black solid;
+            background-color: #f8f7f3;
+        }
+
+        .mybox {
+            padding: 20px 50px;
+        }
+
+        .table,
+        td,
+        tr,
+        th {
+            border: 2px black solid;
+        }
+
+        thead {
+            background-color: #efb4b4;
+        }
+        table{
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row box">
+            <div class="col mybox">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Nhập màu mới" aria-label="Recipient's username" aria-describedby="button-addon2" id="input_color">
                     <button class="btn btn-outline-secondary" type="button" id="btn_add_color">Thêm</button>
@@ -32,9 +59,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col">
+            <div class="col mybox">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nhập size mới" aria-label="Recipient's username" aria-describedby="button-addon2"id="input_size">
+                    <input type="text" class="form-control" placeholder="Nhập size mới" aria-label="Recipient's username" aria-describedby="button-addon2" id="input_size">
                     <button class="btn btn-outline-secondary" type="button" id="btn_add_size">Thêm</button>
                 </div>
                 <table class="table">

@@ -8,7 +8,7 @@ class Search extends controller
             "main",
             [
                 "page" => "psearch",
-                "data" =>$md->Search($_GET['ct_search']),
+                "data" =>$md->Search(trim($_GET['ct_search'])),
                 "ct_search" =>$_GET['ct_search'],
             ]
         );
