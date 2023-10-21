@@ -90,8 +90,9 @@ class product_model
         $kq = $new->chayTruyVanTraVeDL($new->con, $query);
         return $kq;
     }
-    function Search($a)
+    function Search($key)
     {
+        $a=trim($key);
         $new = new DB();
         $query = "SELECT * FROM tbl_products 
     JOIN tbl_brand ON tbl_products.brand_product = tbl_brand.id_brand

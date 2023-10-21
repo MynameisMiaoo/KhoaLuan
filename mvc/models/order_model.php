@@ -4,7 +4,7 @@ class order_model
     function Add($madh, $id, $ten, $dc, $sdt, $emai, $tong, $type, $status,$ship)
     {
         $new = new DB();
-        $sql = "INSERT INTO `tbl_order` (id_oder, id_user, name_user, address, phone, email, total, orderdate, type_pay, status,id_ship) VALUES ('$madh', '$id', '$ten', '$dc', '$sdt', '$emai', '$tong', NOW(), '$type', '$status','$ship')";
+        $sql = "INSERT INTO `tbl_order` (id_oder, id_user, name_user, address, phone, email, total, orderdate, id_pay, status,id_ship) VALUES ('$madh', '$id', '$ten', '$dc', '$sdt', '$emai', '$tong', NOW(), '$type', '$status','$ship')";
         $kq = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
         $new->giaiPhongBoNho($new->con, $kq);
     }
@@ -33,6 +33,7 @@ class order_model
         $sql = "Select * from tbl_order 
         join tbl_status on tbl_order.status = tbl_status.id_status
         join tbl_ship on tbl_order.id_ship = tbl_ship.id_ship
+        join tbl_payment on tbl_order.id_pay = tbl_payment.id_pay
         where id_oder = '$id'";
         $result = $new->chayTruyVanKhongTraVeDL($new->con, $sql);
         $row = mysqli_fetch_assoc($result);

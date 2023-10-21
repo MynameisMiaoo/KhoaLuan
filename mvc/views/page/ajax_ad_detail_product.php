@@ -33,7 +33,7 @@
                     <td class="mytdname" data-dataid="<?php echo $row["id_product"]; ?>"> <?php echo $row["name_product"]; ?></td>
                     <td class="mytdimg" data-dataimg="<?php echo $row["id_product"]; ?>"><img id="myimg" style="height: 100px;" src="/KhoaLuan/<?php echo $row["img_product"]; ?>" alt="anh san pham"></td>
                     <td class="mytddes" data-datades="<?php echo $row["id_product"]; ?>"><?php echo $row["des_product"]; ?></td>
-                    <td class="mytdprice" data-dataprice="<?php echo $row["id_product"]; ?>"><?php echo $row["price_product"]; ?></td>
+                    <td class="mytdprice" data-dataprice="<?php echo $row["id_product"]; ?>"><?php echo number_format($row["price_product"], 0, ',', '.'); ?></td>
                     <td class="mytdcate" data-datacate="<?php echo $row["id_product"]; ?>"><?php echo $row["cate_product"]; ?></td>
                     <td class="mytdbrand" data-databrand="<?php echo $row["id_product"]; ?>"><?php echo $row["brand"]; ?></td>
                 </tr>

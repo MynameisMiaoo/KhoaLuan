@@ -29,7 +29,7 @@
                 <tr>
                     <th scope="row"><?php echo $i + 1 ?></th>
                     <td> <?php echo $data['data'][$i]['name_product'] ?></td>
-                    <td> <?php echo $data['data'][$i]['price_product'] ?></td>
+                    <td> <?php echo number_format($data['data'][$i]['price_product'], 0, ',', '.') ?></td>
                     <td> <?php echo $data['data'][$i]['count_product'] ?></td>
                     <td> <?php echo $data['data'][$i]['color'] ?></td>
                     <td> <?php echo $data['data'][$i]['size'] ?></td>

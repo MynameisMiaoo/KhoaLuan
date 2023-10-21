@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <b for="product3">Hình Thức thanh toán: </b>
-                    <span id="product"> <?php echo $data['info']['type_pay'] ?>
+                    <span id="product"> <?php echo $data['info']['pay'] ?>
                     </span>
                 </div>
                 <div>

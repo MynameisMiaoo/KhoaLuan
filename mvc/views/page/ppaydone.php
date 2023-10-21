@@ -30,6 +30,7 @@
                     <?php for ($i = 0; $i < sizeof($data['data']); $i++) : ?>
                         <div class="madh" id="iddh" data-dataid="<?php echo $data["data"][$i][0] ?>">
                             <b>Mã đơn hàng: <?php echo $data['data'][$i][0] ?></b>
+                            <br>
                             <b>Trạng thái: <?php echo $data["data"][$i][2] ?></b>
                         </div>
                     <?php

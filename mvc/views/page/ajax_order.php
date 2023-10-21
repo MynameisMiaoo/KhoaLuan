@@ -29,7 +29,7 @@
                     <td><?php echo $data['data'][$i]['name_user'] ?></td>
                     <td><?php echo $data['data'][$i]['address'] ?></td>
                     <td><?php echo $data['data'][$i]['phone'] ?></td>
-                    <td><?php echo $data['data'][$i]['total'] ?></td>
+                    <td><?php echo number_format($data['data'][$i]['total'], 0, ',', '.')?></td>
                     <td><?php echo $data['data'][$i]['status'] ?></td>
                 </tr>
             <?php endfor; ?>

@@ -5,33 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <style>
-        .box {
-            padding: 20px;
-            margin: 30px 10px;
-            border-radius: 10px;
-            border: 2px black solid;
-            background-color: #f8f7f3;
-        }
-
-        .mybox {
-            padding: 20px 50px;
-        }
-
-        .table,
-        td,
-        tr,
-        th {
-            border: 2px black solid;
-        }
-
-        thead {
-            background-color: #efb4b4;
-        }
-        table{
-            margin-top: 20px;
-        }
-    </style>
+    <link href="/KhoaLuan/public/css/ad_color_size.css" rel="stylesheet">
 </head>
 
 <body>
@@ -95,7 +69,6 @@
                     location.reload();
                 }
             });
-
         })
         $("#btn_add_size").click(function() {
             $.ajax({
@@ -108,7 +81,6 @@
                     location.reload();
                 }
             });
-
         })
     </script>
 </body>
