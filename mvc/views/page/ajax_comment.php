@@ -19,7 +19,7 @@
                         <div class="avt">
                             <img src="/KhoaLuan/public/img/avt.jpg" alt="avt" style="width: 50px;">
                             <div class="time">
-                                <h6>Người đăng: <?php echo $row['email_user'] ?></h6>
+                                <h6>Người đăng: <?php echo $row['user_name'] ?></h6>
                                 <h6><?php echo $formatted_time = date("j F Y", strtotime($row['time_up'])); ?></h6>
                             </div>
                         </div>

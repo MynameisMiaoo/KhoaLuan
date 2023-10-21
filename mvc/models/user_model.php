@@ -1,6 +1,8 @@
 <?php
 class user_model
 {
+    protected $username;
+    protected $userpass;
     function Login($email, $pass)
     {
         $new = new DB();

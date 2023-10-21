@@ -280,7 +280,9 @@ class Ajax extends controller
     {
         $a = $_POST['id'];
         $md = $this->model("comment_model");
-        $md->Add($a, $_SESSION['username'], $_POST['content']);
+        $md2 = $this->model("user_model");
+        $ID = $md2->GetId($_SESSION['username']);
+        $md->Add($a, $ID, $_POST['content']);
     }
     function Order()
     {
