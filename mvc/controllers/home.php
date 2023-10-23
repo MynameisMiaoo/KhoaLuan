@@ -9,11 +9,13 @@ class home extends controller
         // session_destroy();
         unset($_SESSION['form']);
         $a = $this->model("product_model");
+        $md2= $this->model("cate_model");
         $this->view(
             "main",
             [
                 "page" => "phome",
-                "data" => $a->GetList(0,4)
+                "data" => $a->GetList(0,4),
+                "cate" => $md2->GetList()
             ]
         );
     }

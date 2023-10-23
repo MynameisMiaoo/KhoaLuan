@@ -112,8 +112,10 @@ class Pay extends controller
                 header("Location: ../KhoaLuan/Paydone");
             }
         }
+        $md2= $this->model("cate_model");
         $this->view("main", [
             "page" => "ppay",
+            "cate" => $md2->GetList()
         ]);
     }
 }

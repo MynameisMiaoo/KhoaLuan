@@ -47,6 +47,9 @@
 .dropdown:hover .dropdown__list {
     display: block;
 }
+.dropdown:hover .dropdown__select {
+    color: #ffff;
+}
 
 .dropdown__select {
     width: 100%;
@@ -119,7 +122,6 @@
 
 .navbar-nav .nav-item:hover .nav-link {
     color: #ffff;
-    /* Đổi màu văn bản khi hover */
 }
 
 .span:hover {

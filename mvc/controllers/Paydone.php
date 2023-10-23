@@ -70,9 +70,11 @@ class PayDone extends controller
             exit();
         }
         //do du lieu ra 
+        $md2= $this->model("cate_model");
         $this->view("main", [
             "page" => "ppaydone",
-            "data" => $md->GetList($user->GetId($_SESSION['username']))
+            "data" => $md->GetList($user->GetId($_SESSION['username'])),
+            "cate" => $md2->GetList()
         ]);
     }
 }

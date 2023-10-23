@@ -92,14 +92,44 @@ class product_model
     }
     function Search($key)
     {
-        $a=trim($key);
+        $a = trim($key);
         $new = new DB();
         $query = "SELECT * FROM tbl_products 
     JOIN tbl_brand ON tbl_products.brand_product = tbl_brand.id_brand
     JOIN tbl_category ON tbl_products.cate_id = tbl_category.cate_id
     JOIN tbl_status_products ON tbl_products.id_status_products = tbl_status_products.id_status
     WHERE status = 'Hiển thị'
-    AND (brand LIKE '%" . $a . "%' OR tbl_products.name_product LIKE '%" . $a . "%' OR des_product LIKE '%" . $a . "%');";
+    AND (brand LIKE '%" . $a . "%' OR tbl_products.name_product LIKE '%" . $a . "%' OR des_product LIKE '%" . $a . "%' OR tbl_category.cate_product LIKE '%" . $a . "%');";
+        $kq = $new->chayTruyVanTraVeDL($new->con, $query);
+        return $kq;
+    }
+    function GetProductByCateId($cateid, $sort, $min, $max)
+    {
+        $query = "SELECT * FROM tbl_products 
+        JOIN tbl_brand ON tbl_products.brand_product = tbl_brand.id_brand
+        JOIN tbl_category ON tbl_products.cate_id = tbl_category.cate_id
+        JOIN tbl_status_products ON tbl_products.id_status_products = tbl_status_products.id_status
+        WHERE status = 'Hiển thị'
+        AND tbl_products.cate_id = '$cateid'";
+        // th load va bam loc trang
+        if ($max == "" && $min == "") {
+            $query .= "";
+        }
+
+        // th 1 va ""
+        if ($min != "" && $max == "") {
+            $query .= "AND price_product > '$min'";
+        }
+        if ($min == "" && $max != "") {
+            $query .= "AND price_product < '$max'";
+        }
+        if ($min != "" && $max != "") {
+            $query .= "AND price_product < '$max' AND price_product > '$min'";
+        }
+        if ($sort != "") {
+            $query .= " ORDER BY price_product $sort";
+        }
+        $new = new DB();
         $kq = $new->chayTruyVanTraVeDL($new->con, $query);
         return $kq;
     }

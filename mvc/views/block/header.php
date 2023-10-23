@@ -22,16 +22,27 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="/KhoaLuan/home">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="/KhoaLuan/category/Jordan">Jordan</a>
+                        <a class="nav-link active " aria-current="page" href="/KhoaLuan/home">MinAShop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Adidas">Adidas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/KhoaLuan/category/Nike">Nike</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown" style="width: auto">
+                            <div class="dropdown__select" style="margin-top: 0px; padding-top: 8px;">
+                                Thể Loại
+                            </div>
+                            <ul class="dropdown__list" style="width: max-content;">
+                                <?php while ($row = mysqli_fetch_assoc($data['cate'])) : ?>
+                                    <li class="dropdown__item" onclick="redirectTo('/KhoaLuan/category/type/<?php echo $row['cate_id'] ?>')">
+                                        <span class="dropdown__text"><?php echo $row['cate_product'] ?></span>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
                 <form class="d-flex" method="GET" id="myformm">

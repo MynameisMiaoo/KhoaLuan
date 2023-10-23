@@ -16,6 +16,7 @@
     <div class="container-fluid" style="background-color: #dab8c6;">
         <div class="row row-form">
             <div class="col-xl-4 col-md-6 col-sm-9 col-form">
+                <div class="mess"><?php echo $data['mess']?></div>
                 <div class="button-container">
                     <button class="custom-button clicked" onclick="changeColor(this)" id="dn">Đăng nhập</button>
                     <button class="custom-button" onclick="changeColor(this)" id="dk">Đăng ký</button>

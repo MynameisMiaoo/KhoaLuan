@@ -65,6 +65,28 @@
                     </form>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-section">
+                        <span class="decorated-text">
+                            <span class="decorator">★</span>
+                            <b>MÔ TẢ SẢN PHẨM</b>
+                            <span class="decorator">★</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="display: flex; justify-content: center;">
+                        <b>Thương Hiệu: <?php echo $row['brand'] ?></b>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <b>Thể Loại: <?php echo $row['cate_product'] ?></b> 
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <b><?php echo $row['des_product'] ?></b> 
+                    </div>
+                </div>
+            </div>
         <?php
         endwhile;
         ?>

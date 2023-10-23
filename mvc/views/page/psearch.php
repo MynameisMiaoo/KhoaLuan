@@ -20,6 +20,15 @@
                     </div>
                 </div>
             <?php endif; ?>
+            <?php
+            if (mysqli_num_rows($data["data"]) != 0) :
+            ?>
+                <div class="col-12">
+                    <div class="notify">
+                        <b>Tìm thấy <?php echo mysqli_num_rows($data["data"])?> kết quả cho từ khóa: "<?php echo $data['ct_search'] ?>"</b>
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php while ($row = mysqli_fetch_assoc($data["data"])) : ?>
                 <div class="col col-lg-3 col-sm-6 mycol">
                     <div class="card">

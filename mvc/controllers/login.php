@@ -35,7 +35,7 @@ class login extends controller
         } else {
             $register = $this->model("user_model");
             $mh = password_hash($_POST['re_password'], PASSWORD_DEFAULT);
-            if ($_POST["re_email"] != "" && $_POST["re_password"] != "" && $_POST["re_repass"] != "") {
+            if ($_POST["re_email"] != "" && $_POST["re_password"] != "" && $_POST["re_repass"] != "" && $_POST['re_password'] == $_POST["re_repass"]) {
                 $register->Register($_POST["re_email"], $mh);
                 header('Location: ../login');
                 exit();
