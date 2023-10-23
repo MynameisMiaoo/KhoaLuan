@@ -17,24 +17,23 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/KhoaLuan/public/img/img1.png" class="d-block imgcarou" alt="anh 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>MinAShop</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/KhoaLuan/public/img/img2.png" class="d-block imgcarou" alt="anh 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>MinAShop</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/KhoaLuan/public/img/img3.png" class="d-block imgcarou" alt="anh 3">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>MinAShop</h5>
-                    </div>
-                </div>
+                <?php for ($i = 0; $i < sizeof($data['ads']); $i++) : ?>
+                    <?php if ($i == 0) : ?>
+                        <div class="carousel-item active">
+                            <img src="/KhoaLuan/<?php echo $data['ads'][$i]['img_ads'] ?>" class="d-block imgcarou" alt="ads">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>MinAShop</h5>
+                            </div>
+                        </div>
+                    <?php else : ?>
+                        <div class="carousel-item">
+                            <img src="/KhoaLuan/<?php echo $data['ads'][$i]['img_ads'] ?>" class="d-block imgcarou" alt="ads">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>MinAShop</h5>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endfor; ?>
             </div> <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Trước</span>

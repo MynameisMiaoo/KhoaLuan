@@ -1,6 +1,12 @@
 <?php
 class products_detail_model
 {
+    function Editdata($id, $text, $colum)
+    {
+        $new = new DB();
+        $query = "UPDATE tbl_products_detail SET $colum = '$text' WHERE id_product = '$id'";
+        $new->chayTruyVanKhongTraVeDL($new->con, $query);
+    }
     function AddDetail($id, $color, $size, $imagePath, $count)
     {
         $new = new DB();

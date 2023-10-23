@@ -25,7 +25,7 @@
                             <td><?php echo $row['color'] ?></td>
                             <td><img src="/KhoaLuan/<?php echo $row['img_product'] ?>" alt="anh san pham"></td>
                             <td><?php echo $row['size'] ?></td>
-                            <td><?php echo $row['count_product'] ?></td>
+                            <td class="editmycount" data-dataid="<?php echo $data['id']; ?>" ondblclick="ChangeData(this)"><?php echo $row['count_product'] ?></td>
                         <?php endwhile; ?>
                         </tr>
                 </tbody>
@@ -57,6 +57,42 @@
         </div>
     </div>
     <script>
+        var currenttext = "";
+
+        function ChangeData(element) {
+            element.contentEditable = true;
+            element.focus();
+            currenttext = element.innerHTML;
+        }
+
+        $(document).on('blur', '.editmycount', function() {
+            var text = $(this).text();
+            var id = $(this).data("dataid");
+            if (text != "" && text != null && text != currenttext) {
+                Edit(id, text, "count_product");
+            }
+            if (text == "") {
+                $(this).text(currenttext);
+                alert("Khong duoc de trong");
+            }
+        })
+
+        function Edit(id, text, colum) {
+            $.ajax({
+                url: "/KhoaLuan/ajax/EditCountDetail",
+                method: "POST",
+                data: {
+                    idproduct: id,
+                    content: text,
+                    columname: colum
+                },
+                success: function(data) {
+                    Load(1);
+                    alert("Thanh Cong");
+                }
+            })
+        }
+
         function previewImage(event) {
             var input = event.target;
             var img = document.getElementById("myimg");

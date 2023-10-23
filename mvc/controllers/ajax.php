@@ -23,6 +23,19 @@ class Ajax extends controller
             "data" => $data
         ]);
     }
+    function EditAds()
+    {
+        $mdd = $this->model("ads_model");
+        $id = $_POST['id_ads'];
+        $image = $_FILES['image'];
+        $targetDirectory = "public/img/";
+        $targetFile = $targetDirectory . basename($image["name"]);
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+            $imagePath = $targetFile;
+        }
+        $mdd->Update($id,$imagePath);
+    }
     function AddColor()
     {
         $color = $_POST['color'];
@@ -34,6 +47,18 @@ class Ajax extends controller
         $size = $_POST['size'];
         $md = $this->model("size_model");
         $md->Add($size);
+    }
+    function AddBrand()
+    {
+        $brand = $_POST['brand'];
+        $md = $this->model("brand_model");
+        $md->Add($brand);
+    }
+    function AddCate()
+    {
+        $cate = $_POST['cate'];
+        $md = $this->model("cate_model");
+        $md->Add($cate);
     }
     function GetProduct()
     {
@@ -47,6 +72,8 @@ class Ajax extends controller
     }
     function Insert()
     {
+        $temp = $this->model("product_model");
+        $md = $this->model("products_detail_model");
         $name = $_POST['name'];
         $price = $_POST['price'];
         $category = $_POST['category'];
@@ -56,8 +83,6 @@ class Ajax extends controller
         $brand = $_POST['brand'];
         $description = $_POST['description'];
         $image = $_FILES['image'];
-        $temp = $this->model("product_model");
-        $md = $this->model("products_detail_model");
         $targetDirectory = "public/img/";
         $targetFile = $targetDirectory . basename($image["name"]);
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -91,6 +116,14 @@ class Ajax extends controller
     function Edit()
     {
         $temp = $this->model("product_model");
+        $id = $_POST["idproduct"];
+        $text = $_POST["content"];
+        $colum = $_POST["columname"];
+        $temp->Editdata($id, $text, $colum);
+    }
+    function EditCountDetail()
+    {
+        $temp = $this->model("products_detail_model");
         $id = $_POST["idproduct"];
         $text = $_POST["content"];
         $colum = $_POST["columname"];

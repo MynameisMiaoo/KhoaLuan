@@ -10,12 +10,14 @@ class home extends controller
         unset($_SESSION['form']);
         $a = $this->model("product_model");
         $md2= $this->model("cate_model");
+        $md3= $this->model("ads_model");
         $this->view(
             "main",
             [
                 "page" => "phome",
                 "data" => $a->GetList(0,4),
-                "cate" => $md2->GetList()
+                "cate" => $md2->GetList(),
+                "ads" => $md3->GetList()
             ]
         );
     }

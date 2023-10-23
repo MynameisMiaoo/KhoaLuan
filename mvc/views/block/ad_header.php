@@ -21,6 +21,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/KhoaLuan/admin/Mail">Thư</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KhoaLuan/admin/InfoSale">Quảng Cáo</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Cơ sở dữ liệu
@@ -29,6 +32,7 @@
                             <li><a class="dropdown-item" href="/KhoaLuan/admin/Product">Sản Phẩm</a></li>
                             <li><a class="dropdown-item" href="/KhoaLuan/admin/DetailProduct">Chi tiết sản phẩm</a></li>
                             <li><a class="dropdown-item" href="/KhoaLuan/admin/ColorSize">Màu và Size</a></li>
+                            <li><a class="dropdown-item" href="/KhoaLuan/admin/Cate_Brand">Thương Hiệu và Loại sản phẩm</a></li>
                         </ul>
                     </li>
                 </ul>

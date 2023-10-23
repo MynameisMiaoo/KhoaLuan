@@ -31,55 +31,23 @@ class admin extends controller
         $this->view("madmin", [
             "page" => "ad_color_size",
             "color" => $color->GetListColor(),
-            "size" => $size ->GetListSize()
+            "size" => $size->GetListSize()
+        ]);
+    }
+    function Cate_Brand()
+    {
+        $brand = $this->model("brand_model");
+        $cate = $this->model("cate_model");
+        $this->view("madmin", [
+            "page" => "ad_brand_cate",
+            "brand" => $brand->GetList(),
+            "cate" => $cate->GetList()
         ]);
     }
     function Product($x = null)
     {
         $color = $this->model("color_model");
         $size  = $this->model("size_model");
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //     $targetDirectory = "public/img/";
-        //     $targetFile = $targetDirectory . basename($_FILES["product_image"]["name"]);
-        //     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-        //     if (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile)) {
-        //         $imagePath = $targetFile;
-        //     }
-        //     $temp->Insert(
-        //         $_POST['nameproduct'],
-        //         $_POST['des'],
-        //         $_POST['priceproduct'],
-        //         $_POST['category'],
-        //         $_POST['brand'],
-        //         $imagePath,
-        //     );
-        // }
-        // if (isset($_POST['product_id'])) {
-        //     $targetDirectory = "public/img/";
-        //     $targetFile = $targetDirectory . basename($_FILES["product_image"]["name"]);
-        //     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-        //     if (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile)) {
-        //         $imagePath = $targetFile;
-        //     }
-        //     $temp->Update(
-        //         $_POST['product_id'],
-        //         $_POST['product_name'],
-        //         $imagePath,
-        //         $_POST['product_description'],
-        //         $_POST['product_price'],
-        //         $_POST['product_category'],
-        //         $_POST['product_brand']
-        //     );
-        // }
-        // if ($x === null) {
-        //     $this->view("madmin", [
-        //         "page" => "ad_product",
-        //         "data" => $temp->GetListFull(),
-        //     ]);
-        // } else {
-        //     $temp->Delete($x);
         $this->view("madmin", [
             "page" => "ad_product",
             "color" => $color->GetListColor(),
@@ -108,6 +76,14 @@ class admin extends controller
     {
         $this->view("madmin", [
             "page" => "ad_detail_product"
+        ]);
+    }
+    function InfoSale()
+    {
+        $md3= $this->model("ads_model");
+        $this->view("madmin", [
+            "page" => "ad_sale",
+            "ads" => $md3->GetList()
         ]);
     }
 }
