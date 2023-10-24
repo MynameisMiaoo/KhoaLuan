@@ -40,7 +40,7 @@
     </div>
     <script>
         function redirectToLogin() {
-            window.parent.location.href = "/KhoaLuan/Login";
+            window.parent.location.href = "/KhoaLuan/login";
         }
     </script>
 </body>

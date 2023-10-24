@@ -8,7 +8,7 @@ class Cart extends controller
         }
         $md2= $this->model("cate_model");
         $this->view("main", [
-            "page" => "Cart",
+            "page" => "cart",
             "cate" => $md2->GetList()
         ]);
     }
